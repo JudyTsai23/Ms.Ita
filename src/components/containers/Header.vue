@@ -32,7 +32,7 @@ export default {
 </script>
 <style scoped>
 .nav-bar {
-  background-color: #343a40f1;
+  background-color: #1b1e20ee;
 }
 .logo {
   height: 50px;

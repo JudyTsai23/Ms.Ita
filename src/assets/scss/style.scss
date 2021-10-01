@@ -1,6 +1,11 @@
 // Define your variable overrides here
 // must be loaded before bootstrap's scss
 $main-color: red;
+@mixin router-link($link-color) {
+  color: $link-color;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 // Include Bootstrap and BootstrapVue SCSS files
 @import "~bootstrap/scss/bootstrap.scss";

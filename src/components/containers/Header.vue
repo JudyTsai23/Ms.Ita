@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar class="nav-bar" toggleable="md" type="dark">
+    <b-navbar class="nav-bar" toggleable="md" type="dark" fixed="top">
       <b-navbar-brand to="/home">
         <img class="logo" src="../../assets/img/logo/logo.png" alt="Ms.Ita" />
       </b-navbar-brand>
@@ -37,6 +37,6 @@ export default {
   background-color: #1b1e20ee;
 }
 .logo {
-  height: 50px;
+  height: 70px;
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <div>
+    <!-- Header -->
     <Header />
+    <!-- Content -->
+    <router-view></router-view>
+    <!-- Footer -->
     <Footer />
   </div>
 </template>

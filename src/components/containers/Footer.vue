@@ -1,30 +1,48 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer-inside">
       <b-row align-v="center" align-h="center" class="text-center">
         <b-col cols="2" align-self="start">
           <img class="logo" src="../../assets/img/logo/logo.png" />
         </b-col>
-        <b-col md="2" align-self="start" class="title">
-          <router-link to="/home">首頁</router-link></b-col
-        >
-        <b-col md="2" align-self="start" class="title">訊息專區</b-col>
-        <b-col md="2" align-self="start" class="title">美味餐點</b-col>
-        <b-col md="2" align-self="start">
+        <b-col>
           <b-row>
-            <b-col class="title mb-1">線上預訂</b-col>
+            <b-col align-self="start" class="title">訊息專區</b-col>
+            <b-col align-self="start" class="title">美味餐點</b-col>
+            <b-col align-self="start">
+              <b-row>
+                <b-col class="title mb-1">線上預訂</b-col>
+              </b-row>
+              <b-row>
+                <b-col class="item">訂位</b-col>
+              </b-row>
+              <b-row>
+                <b-col class="item mb-1">訂餐</b-col>
+              </b-row>
+            </b-col>
+            <b-col align-self="start" class="title">關於我們</b-col>
           </b-row>
-          <b-row>
-            <b-col class="item">訂位</b-col>
-          </b-row>
-          <b-row>
-            <b-col class="item mb-1">訂餐</b-col>
+          <b-row align-v="center" align-h="center" class="text-center mb-2">
+            <b-col>
+              <hr class="footer-hr" />
+              <b-row>
+                <b-col
+                  >Photo by
+                  <a
+                    href="https://unsplash.com/s/photos/italian-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                    >Unsplash</a
+                  ></b-col
+                >
+              </b-row>
+              <b-row>
+                <b-col>此為練習用網站，不為商業所用。</b-col>
+              </b-row>
+            </b-col>
           </b-row>
         </b-col>
-        <b-col md="2" align-self="start" class="title">關於我們</b-col>
       </b-row>
     </div>
-  </div>
+  </footer>
 </template>
 <script>
 export default {
@@ -33,19 +51,20 @@ export default {
 </script>
 <style lang="scss" scoped>
 .footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   /* height: 15vh; */
   background-color: #001a00e5;
   opacity: 1;
-  color: white;
+  color: lightgray;
+  margin-top: 100px;
   padding-top: 3vh;
   font-size: 12px;
 
   .footer-inside {
-    width: 75%;
+    width: 70%;
     margin: auto;
 
     .logo {
@@ -54,7 +73,7 @@ export default {
     .title,
     a {
       @include router-link(rgb(111, 131, 111));
-      font-size: 16px;
+      font-size: 15px;
     }
     .title:hover,
     a:hover,
@@ -64,6 +83,11 @@ export default {
     .item {
       font-weight: normal;
       @include router-link(rgb(111, 131, 111));
+    }
+    .footer-hr {
+      background-color: rgb(50, 63, 53);
+      margin-bottom: 10px;
+      width: 90%;
     }
   }
 }

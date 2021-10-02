@@ -7,9 +7,14 @@ import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
+// global components
+import overlay from "@/components/common/Overlay.vue";
+
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
+// 設定 global components
+Vue.component("global-overlay", overlay);
 
 new Vue({
   router,

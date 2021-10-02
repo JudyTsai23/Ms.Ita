@@ -2,7 +2,11 @@
   <div>
     <b-navbar class="nav-bar" toggleable="md" type="dark" fixed="top">
       <b-navbar-brand to="/home">
-        <img class="logo" src="../../assets/img/logo/logo.png" alt="Ms.Ita" />
+        <img
+          class="logo"
+          src="../../assets/img/logo/logo2-bold.png"
+          alt="Ms.Ita"
+        />
       </b-navbar-brand>
       <!-- <b-navbar-brand to="/home">Ms. Ita</b-navbar-brand> -->
 
@@ -37,6 +41,6 @@ export default {
   background-color: #1b1e20ee;
 }
 .logo {
-  height: 70px;
+  height: 40px;
 }
 </style>

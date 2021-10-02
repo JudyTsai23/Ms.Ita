@@ -2,14 +2,14 @@
   <footer class="footer">
     <div class="footer-inside">
       <b-row align-v="center" align-h="center" class="text-center">
-        <b-col cols="2" align-self="start">
-          <img class="logo" src="../../assets/img/logo/logo.png" />
+        <b-col md="4" xl="3" xxl="2" align-self="start">
+          <img class="logo mt-3" src="../../assets/img/logo/logo2-bold.png" />
         </b-col>
-        <b-col>
-          <b-row>
-            <b-col align-self="start" class="title">訊息專區</b-col>
-            <b-col align-self="start" class="title">美味餐點</b-col>
-            <b-col align-self="start">
+        <b-col md="8" xl="7" xxl="5">
+          <b-row align-v="center" align-h="center" class="text-center">
+            <b-col md="3" align-self="start" class="title">訊息專區</b-col>
+            <b-col md="3" align-self="start" class="title">美味餐點</b-col>
+            <b-col md="3" align-self="start">
               <b-row>
                 <b-col class="title mb-1">線上預訂</b-col>
               </b-row>
@@ -20,7 +20,7 @@
                 <b-col class="item mb-1">訂餐</b-col>
               </b-row>
             </b-col>
-            <b-col align-self="start" class="title">關於我們</b-col>
+            <b-col md="3" align-self="start" class="title">關於我們</b-col>
           </b-row>
           <b-row align-v="center" align-h="center" class="text-center mb-2">
             <b-col>
@@ -30,7 +30,11 @@
                   >Photo by
                   <a
                     href="https://unsplash.com/s/photos/italian-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                    >Unsplash</a
+                    >Unsplash
+                  </a>
+                  | Icons by BootstrapVue and
+                  <a href="https://www.flaticon.com/" title="Flaticon"
+                    >Flaticon.com</a
                   ></b-col
                 >
               </b-row>
@@ -59,7 +63,7 @@ export default {
   background-color: #001a00e5;
   opacity: 1;
   color: lightgray;
-  margin-top: 100px;
+  margin-top: 70px;
   padding-top: 3vh;
   font-size: 12px;
 
@@ -68,7 +72,7 @@ export default {
     margin: auto;
 
     .logo {
-      height: 100px;
+      height: 70px;
     }
     .title,
     a {
@@ -87,7 +91,7 @@ export default {
     .footer-hr {
       background-color: rgb(50, 63, 53);
       margin-bottom: 10px;
-      width: 90%;
+      width: 80%;
     }
   }
 }

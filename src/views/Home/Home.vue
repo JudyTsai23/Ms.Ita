@@ -1,10 +1,14 @@
 <template>
   <div>
     <!-- top slide -->
-    <div>
+    <div class="top-slide">
       <b-overlay variant="dark" opacity="0.5" blur="10" show>
         <template #overlay>
-          <img class="slider-logo mt-5" src="../../assets/img/logo/logo.png" />
+          <b-img
+            fluid
+            class="mt-2"
+            :src="require(`@/assets/img/logo/logo2-bold.png`)"
+          />
         </template>
         <b-carousel :interval="4000" background="#ababab" fade indicators>
           <template v-for="item in slideImg">
@@ -14,7 +18,8 @@
               :text="slideText"
             >
               <template #img>
-                <img
+                <b-img
+                  fluid-grow
                   id="slideImg"
                   class="img"
                   :src="require(`@/assets/img/slide/` + item)"
@@ -27,29 +32,117 @@
     </div>
     <!-- content below -->
     <b-container>
-      <!--  -->
-      <div></div>
+      <!-- category img -->
+      <div class="category mt-5 mb-5">
+        <b-row align-v="center" align-h="center">
+          <template v-for="item of categoryImg">
+            <b-col cols="3" :key="item.index">
+              <b-img-lazy
+                class="img shadow-lg rounded"
+                rounded="circle"
+                blank-color="#444422"
+                center
+                fluid
+                :src="require(`@/assets/img/category/` + item)"
+              />
+            </b-col>
+          </template>
+        </b-row>
+      </div>
       <!-- 訊息專區 -->
-      <div></div>
+      <div class="msg-area mb-4">
+        <div class="frame">
+          訊息專區
+          <b-img class="frame-icon" :src="require(`@/assets/img/send.svg`)" />
+        </div>
+      </div>
       <!-- 餐廳位置 -->
       <div></div>
       <!-- 營業時間 -->
-      <div class="open-time"></div>
+      <div class="open-time">
+        <b-row align-v="center" align-h="center">
+          <!-- 文字 -->
+          <b-col>
+            <b-row align-v="center" align-h="center">
+              <b-col>
+                <b-row>
+                  <b-col
+                    >營業時間 <b-icon icon="telephone-fill"></b-icon
+                  ></b-col>
+                </b-row>
+                <b-row>
+                  <b-col>星期一~五 11:00~20:30</b-col>
+                </b-row>
+                <b-row>
+                  <b-col>星期六~日 10:30~21:30</b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <b-row>
+                  <b-col>電話</b-col>
+                </b-row>
+                <b-row>
+                  <b-col>02-1234-5678</b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-col>
+          <!-- 圖片 -->
+          <b-col></b-col>
+        </b-row>
+      </div>
     </b-container>
   </div>
 </template>
 <script src="./Home.js"></script>
 <style lang="scss" scoped>
-.slider-logo {
-  height: 100vh;
+// 上方Slide
+.top-slide {
+  margin-top: -60px;
+  .img {
+    height: 115vh;
+    width: 100vw;
+  }
 }
-.img {
-  height: 115vh;
-  width: 100vw;
+// 四個圈圈圖
+.category {
+  width: 90%;
+  margin: auto;
+  .img {
+    height: 23vh;
+    width: 12vw;
+  }
+  .shadow-lg {
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 30%) !important;
+  }
 }
+// 訊息專區
+.msg-area {
+  height: 20vh;
+  width: 90%;
+  margin: auto;
+  border: lightgray 1px solid;
+  border-radius: 10px;
+  .frame {
+    width: 15%;
+    background-color: white;
+    margin: -15px 0 0 20px;
+    padding-left: 8px;
+    color: gray;
+    .frame-icon {
+      height: 5vh;
+      width: 3vw;
+      color: lightgray;
+    }
+  }
+}
+// 營業時間
 .open-time {
-  width: 100%;
   height: 50vh;
-  background-color: rgb(204, 204, 204);
+  width: 80%;
+  margin: auto;
+  background-color: #444422de;
 }
 </style>

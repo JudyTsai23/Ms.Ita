@@ -6,6 +6,7 @@
     <router-view></router-view>
     <!-- Footer -->
     <Footer />
+    <global-overlay :is-show="$store.state.globalLoading"></global-overlay>
   </div>
 </template>
 <script>
@@ -20,4 +21,4 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style lang="scss" scoped></style>

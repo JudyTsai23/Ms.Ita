@@ -52,8 +52,26 @@
       <!-- 訊息專區 -->
       <div class="msg-area mb-4">
         <div class="frame">
-          訊息專區
-          <b-img class="frame-icon" :src="require(`@/assets/img/send.svg`)" />
+          <span class="frame-label mr-1">訊息專區</span>
+          <b-img
+            class="frame-icon mb-1"
+            :src="require(`@/assets/img/send.svg`)"
+          />
+        </div>
+        <!-- content -->
+        <div class="content">
+          <b-row align-v="center" align-h="center">
+            <!-- msg -->
+            <b-col>
+              <template v-for="msg of msgArr">
+                <b-row :key="msg.index">
+                  <b-col></b-col>
+                </b-row>
+              </template>
+            </b-col>
+            <!-- icon、pic -->
+            <b-col></b-col>
+          </b-row>
         </div>
       </div>
       <!-- 餐廳位置 -->
@@ -120,22 +138,27 @@
 }
 // 訊息專區
 .msg-area {
-  height: 20vh;
+  // height: 20vh;
   width: 90%;
   margin: auto;
-  border: lightgray 1px solid;
+  border: lightgray 2.5px solid;
   border-radius: 10px;
   .frame {
-    width: 15%;
+    width: fit-content;
     background-color: white;
     margin: -15px 0 0 20px;
-    padding-left: 8px;
+    padding: 0 10px;
     color: gray;
-    .frame-icon {
-      height: 5vh;
-      width: 3vw;
-      color: lightgray;
+    .frame-label {
+      font-size: 20px;
     }
+    .frame-icon {
+      width: 33px;
+      filter: opacity(50%);
+    }
+  }
+  .content {
+    padding: 15px;
   }
 }
 // 營業時間

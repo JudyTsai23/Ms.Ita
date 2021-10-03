@@ -9,12 +9,17 @@
   cursor: pointer;
 }
 
+body {
+  background-color: red;
+}
 // .b-overlay {
 //   z-index: 20;
 // }
 
 // Include Bootstrap and BootstrapVue SCSS files
-@import "~bootstrap/scss/bootstrap.scss";
-@import "~bootstrap-vue/src/index.scss";
+// @import "~bootstrap/scss/bootstrap.scss";
+// @import "~bootstrap-vue/src/index.scss";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 // General style overrides and custom classes

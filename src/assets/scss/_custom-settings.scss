@@ -1,5 +1,26 @@
-$test: #ccaacc;
+// Variables
+// --colors
+$primary: #466050;
+$primary-light: #789d9e;
+$primary-lighter: #a2c4c5;
+$primary-dark: #2f3539;
+$primary-darker: #453144;
+$secondary: #ebc187;
+$secondary-light: #f7ddac;
+$secondary-dark: #c96759;
+$other-purple: #cdbbcc;
 
+$theme-colors: (
+	'primary-light': $primary-light,
+	'primary-lighter': $primary-lighter,
+	'primary-dark': $primary-dark,
+	'primary-darker': $primary-darker,
+	'secondary-light': $secondary-light,
+	'secondary-dark': $secondary-dark,
+	'other': $other-purple,
+);
+
+// mixins
 @mixin router-link($link-color) {
 	color: $link-color;
 	text-decoration: none;

@@ -1,25 +1,22 @@
 // Define your variable overrides here
 // must be loaded before bootstrap's scss
+@import 'custom-settings';
 
-// $main-color: red;
+// Include Bootstrap and BootstrapVue SCSS files
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+// @import '~bootstrap/dist/css/bootstrap.css';
+// @import '~bootstrap-vue/dist/bootstrap-vue.css';
 
-@mixin router-link($link-color) {
-  color: $link-color;
-  text-decoration: none;
-  cursor: pointer;
-}
-
+// General style overrides and custom classes
 body {
-  background-color: red;
+	background-color: $test;
+}
+.max-container {
+	max-width: 1400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 // .b-overlay {
 //   z-index: 20;
 // }
-
-// Include Bootstrap and BootstrapVue SCSS files
-// @import "~bootstrap/scss/bootstrap.scss";
-// @import "~bootstrap-vue/src/index.scss";
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~bootstrap-vue/dist/bootstrap-vue.css";
-
-// General style overrides and custom classes

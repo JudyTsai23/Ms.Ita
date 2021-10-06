@@ -1,0 +1,7 @@
+$test: #ccaacc;
+
+@mixin router-link($link-color) {
+	color: $link-color;
+	text-decoration: none;
+	cursor: pointer;
+}

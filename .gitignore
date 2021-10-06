@@ -1,7 +1,5 @@
-.DS_Store
-node_modules
+# generate directories
 /dist
-
 
 # local env files
 .env.local
@@ -22,3 +20,20 @@ pnpm-debug.log*
 *.sln
 *.sw?
 node_modules
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+#[joyu]custom
+test_source

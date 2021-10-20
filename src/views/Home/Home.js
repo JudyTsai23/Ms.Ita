@@ -7,7 +7,12 @@ export default {
       slideText: "Enjoy food.  Relax.  Have a Good day.",
       slideImg: ["02.jpg", "03.jpg", "04.jpg"],
       // 四個圈圈
-      categoryImg: ["pizza.jpg", "pasta.jpg", "cake.jpg", "coffee.jpg"],
+      categoryImg: [
+        { label: "舒適的用餐環境", pic: "restaurant.jpg", link: "#" },
+        { label: "美味的精緻餐點", pic: "pasta.jpg", link: "#" },
+        { label: "親切的服務態度", pic: "people.jpg", link: "#" },
+        { label: "專業的服務態度", pic: "coffee.png", link: "#" },
+      ],
       // 訊息專區
       msgArr: [
         { title: "[活動]", content: "雙十國慶優惠活動開始囉!", href: "#" },

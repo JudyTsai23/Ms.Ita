@@ -2,9 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 // Container
-const Container = () => import("../components/containers/Container.vue");
+const Container = () => import("@/components/containers/Container.vue");
 // Home
-const Home = () => import("../views/Home/Home.vue");
+const Home = () => import("@/views/Home/Home.vue");
 
 Vue.use(VueRouter);
 
@@ -19,6 +19,11 @@ export default router;
 
 function configRoutes() {
   return [
+    {
+      // 測試
+      path: "*",
+      redirect: "/",
+    },
     {
       path: "/",
       redirect: "/home",

@@ -3,7 +3,7 @@
     <div class="footer-inside">
       <b-row align-v="center" align-h="center" class="text-center">
         <b-col md="4" xl="3" xxl="2" align-self="start">
-          <img class="logo mt-3" src="../../assets/img/logo/logo2-bold.png" />
+          <img class="logo mt-3" src="../../assets/img/logo/logo2-bold.svg" />
         </b-col>
         <b-col md="8" xl="7" xxl="5">
           <b-row align-v="center" align-h="center" class="text-center">

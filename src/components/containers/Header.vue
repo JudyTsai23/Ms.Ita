@@ -4,7 +4,7 @@
       <b-navbar-brand to="/home">
         <img
           class="logo"
-          src="../../assets/img/logo/logo2-bold.png"
+          src="../../assets/img/logo/logo2-bold.svg"
           alt="Ms.Ita"
         />
       </b-navbar-brand>
@@ -17,13 +17,13 @@
           <b-nav-item class="mr-5" to="/home">首頁</b-nav-item>
           <b-nav-item class="mr-5">訊息專區</b-nav-item>
           <b-nav-item-dropdown class="mr-5 dropdown-list" text="美味餐點">
-            <b-dropdown-item variant="secondary">主菜</b-dropdown-item>
-            <b-dropdown-item variant="secondary">沙拉</b-dropdown-item>
-            <b-dropdown-item variant="secondary">甜點</b-dropdown-item>
+            <b-dropdown-item variant="primary">主菜</b-dropdown-item>
+            <b-dropdown-item variant="primary">沙拉</b-dropdown-item>
+            <b-dropdown-item variant="primary">甜點</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown class="mr-5" text="線上預訂">
-            <b-dropdown-item>訂位</b-dropdown-item>
-            <b-dropdown-item>訂餐</b-dropdown-item>
+            <b-dropdown-item variant="primary">訂位</b-dropdown-item>
+            <b-dropdown-item variant="primary">訂餐</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item class="mr-5">關於我們</b-nav-item>
         </b-navbar-nav>

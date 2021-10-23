@@ -11,11 +11,11 @@
           />
           <div class="text-center logo-text">
             <span class="title">
-              {{ slideTitle }}
+              Italian restaurant
             </span>
             <br />
-            <span>
-              {{ slideText }}
+            <span class="sub-title">
+              Enjoy food. &nbsp; Relax. &nbsp; Have a Good day.
             </span>
           </div>
         </template>
@@ -36,10 +36,10 @@
       </b-overlay>
     </div>
     <!-- content below -->
-    <div class="home-container max-container">
+    <div class="home-container">
       <!-- category img -->
       <div class="category-bg">
-        <div class="category pt-5 pb-4">
+        <div class="max-container category pt-5 pb-4">
           <b-row align-v="center" align-h="center">
             <template v-for="item of categoryImg">
               <b-col cols="6" md="3" :key="item.index">
@@ -60,66 +60,121 @@
         </div>
       </div>
       <!-- 訊息專區 -->
-      <div class="msg-area mt-5 mb-4">
-        <div class="frame">
-          <span class="frame-label mr-1">訊息專區</span>
-          <b-img
-            class="frame-icon mb-1"
-            :src="require(`@/assets/img/send.svg`)"
-          />
-        </div>
-        <!-- content -->
-        <div class="content">
-          <b-row align-v="center" align-h="center">
-            <!-- msg -->
-            <b-col>
-              <template v-for="msg of msgArr">
-                <b-row :key="msg.index">
-                  <b-col></b-col>
-                </b-row>
+      <div class="msg-area-bg mt-5 mb-5">
+        <div class="max-container msg-area">
+          <b-row>
+            <!-- 訊息 -->
+            <b-col md="8" class="mt-4 mb-5 mb-md-0 pl-xl-5">
+              <template v-for="(item, index) of msgArr">
+                <!-- 預設只查詢出五筆 -->
+                <div :key="index">
+                  <router-link :to="item.link">
+                    <b-row class="mt-2">
+                      <!-- 標題 -->
+                      <b-col cols="5" md="4" xl="2" class="text-center">{{
+                        item.title
+                      }}</b-col>
+                      <!-- 訊息內容 -->
+                      <b-col cols="7" md="8" xl="10" class="content">{{
+                        item.content
+                      }}</b-col>
+                    </b-row>
+                  </router-link>
+                </div>
               </template>
             </b-col>
-            <!-- icon、pic -->
-            <b-col></b-col>
+            <!-- 圖片 -->
+            <b-col md="4" class="text-center">
+              <h4 class="text mb-5">訊息專區</h4>
+              <b-img
+                class="img"
+                :src="require(`@/assets/img/home/message.png`)"
+              />
+            </b-col>
           </b-row>
         </div>
       </div>
       <!-- 餐廳位置 -->
-      <div></div>
+      <div class="location-bg">
+        <div class="max-container location">
+          <b-row align-v="center" align-h="center">
+            <b-col md="4" class="text-center pt-5 pb-4 pb-md-5">
+              <h4 class="text mb-5">餐廳位置</h4>
+              <b-img-lazy
+                class="img"
+                :src="require(`@/assets/img/home/location.png`)"
+              />
+            </b-col>
+            <b-col md="8" class="mb-5 mt-md-5">
+              <!--Google map-->
+              <div id="map-container-google-1" class="map-container">
+                <iframe
+                  src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  frameborder="0"
+                  style="border:0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </b-col>
+          </b-row>
+        </div>
+      </div>
       <!-- 營業時間 -->
-      <div class="open-time">
-        <b-row align-v="center" align-h="center">
-          <!-- 文字 -->
-          <b-col>
-            <b-row align-v="center" align-h="center">
-              <b-col>
-                <b-row>
-                  <b-col
-                    >營業時間 <b-icon icon="telephone-fill"></b-icon
-                  ></b-col>
-                </b-row>
-                <b-row>
-                  <b-col>星期一~五 11:00~20:30</b-col>
-                </b-row>
-                <b-row>
-                  <b-col>星期六~日 10:30~21:30</b-col>
-                </b-row>
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col>
-                <b-row>
-                  <b-col>電話</b-col>
-                </b-row>
-                <b-row>
-                  <b-col>02-1234-5678</b-col>
-                </b-row>
-              </b-col>
-            </b-row>
-          </b-col>
-          <!-- 圖片 -->
-          <b-col></b-col>
-        </b-row>
+      <div class="open-time-bg mt-5">
+        <div class="max-container open-time">
+          <b-row align-v="center" align-h="center">
+            <!-- 圖片 -->
+            <b-col md="6" class="text-center mb-5 mb-md-0">
+              <b-img-lazy
+                class="img"
+                :src="require(`@/assets/img/openTime.jpg`)"
+              />
+            </b-col>
+            <!-- 文字 -->
+            <b-col md="5" class="ml-3 ml-md-4">
+              <b-row align-v="center" align-h="center" class="mb-4 mb-md-5">
+                <b-col>
+                  <b-row>
+                    <b-col>
+                      <h5>營業時間 <b-icon icon="clock" /></h5>
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col>星期一 ~ 星期五 &nbsp; 11:00 ~ 20:30</b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col>星期六 ~ 星期日 &nbsp; 10:30 ~ 21:30</b-col>
+                  </b-row>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <b-row>
+                    <b-col>
+                      <h5>電話 <b-icon icon="telephone" /></h5>
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col>02-1234-5678</b-col>
+                  </b-row>
+                </b-col>
+              </b-row>
+              <b-row class="mt-4">
+                <b-col class="contact-icon">
+                  <router-link to="#"
+                    ><b-icon class="icon mr-4" icon="facebook"></b-icon
+                  ></router-link>
+                  <router-link to="#"
+                    ><b-icon class="icon mr-4" icon="instagram"></b-icon
+                  ></router-link>
+                  <router-link to="#"
+                    ><b-icon class="icon" icon="twitter"></b-icon
+                  ></router-link>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </div>
       </div>
     </div>
   </div>
@@ -138,6 +193,9 @@
     letter-spacing: 1px;
     .title {
       font-size: 24px;
+    }
+    .sub-title {
+      font-size: 15px;
     }
   }
   .img {
@@ -168,44 +226,89 @@
           width: 130px;
         }
       }
-      // .img:hover {
-      // }
+      .img:hover {
+        box-shadow: 0 1rem 3rem rgb(0 0 0 / 55%) !important;
+      }
       .shadow-lg {
         box-shadow: 0 1rem 3rem rgb(0 0 0 / 30%) !important;
       }
     }
   }
   // 訊息專區
-  .msg-area {
-    // height: 20vh;
-    width: 90%;
-    margin: auto;
-    border: lightgray 2.5px solid;
-    border-radius: 10px;
-    .frame {
-      width: fit-content;
-      background-color: white;
-      margin: -15px 0 0 20px;
-      padding: 0 10px;
-      color: gray;
-      .frame-label {
-        font-size: 20px;
+  .msg-area-bg {
+    .msg-area {
+      width: 60%;
+      margin: auto;
+      .text {
+        color: $primary-dark;
       }
-      .frame-icon {
-        width: 33px;
-        filter: opacity(50%);
+      .content {
+        margin-left: -30px;
       }
     }
-    .content {
-      padding: 15px;
+    @media (max-width: 1200px) {
+      .msg-area {
+        width: 75%;
+      }
+    }
+    @media (max-width: 500px) {
+      .msg-area {
+        width: 90%;
+      }
+    }
+  }
+  // 餐廳位置
+  .location-bg {
+    background-color: $primary;
+    .location {
+      width: 70%;
+      margin: auto;
+      .text {
+        color: white;
+      }
+      .img {
+        height: 55%;
+        width: 55%;
+      }
+      .map-container {
+        overflow: hidden;
+        padding-bottom: 45%;
+        position: relative;
+        height: 100%;
+        width: 80%;
+        margin: auto;
+        iframe {
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+        }
+      }
     }
   }
   // 營業時間
-  .open-time {
-    height: 50vh;
-    width: 80%;
-    margin: auto;
-    background-color: #444422de;
+  .open-time-bg {
+    .open-time {
+      width: 70%;
+      margin: auto;
+      color: $primary-dark;
+      .img {
+        width: 90%;
+      }
+    }
+    .contact-icon {
+      color: $primary;
+      .icon {
+        height: 30px;
+        width: 30px;
+      }
+    }
+    @media (max-width: 1200px) {
+      .open-time {
+        width: 90%;
+      }
+    }
   }
 }
 </style>

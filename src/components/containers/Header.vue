@@ -25,7 +25,7 @@
             <b-dropdown-item variant="primary">訂位</b-dropdown-item>
             <b-dropdown-item variant="primary">訂餐</b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item class="mr-5">關於我們</b-nav-item>
+          <b-nav-item class="mr-5" to="/about">關於我們</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

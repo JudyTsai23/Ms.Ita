@@ -11,14 +11,35 @@ $secondary-dark: #c96759;
 $other-purple: #cdbbcc;
 
 $theme-colors: (
-	'primary-light': $primary-light,
-	'primary-lighter': $primary-lighter,
-	'primary-dark': $primary-dark,
-	'primary-darker': $primary-darker,
-	'secondary-light': $secondary-light,
-	'secondary-dark': $secondary-dark,
-	'other': $other-purple,
+	"primary-light": $primary-light,
+	"primary-lighter": $primary-lighter,
+	"primary-dark": $primary-dark,
+	"primary-darker": $primary-darker,
+	"secondary-light": $secondary-light,
+	"secondary-dark": $secondary-dark,
+	"other": $other-purple,
 );
+
+// $enable-gradients: true;
+// $enable-responsive-font-sizes: true;
+
+// --breakpoints & container
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	hd: 1440px,
+);
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	hd: 1400px,
+);
+$nav-height: 66px;
 
 // mixins
 @mixin router-link($link-color) {

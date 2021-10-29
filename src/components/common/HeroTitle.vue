@@ -3,8 +3,7 @@
     text-variant="white"
     fluid
     :header="title"
-    :image="image"
-    header-level="5"
+    header-tag="h2"
     class="hero-title"
     :style="bgStyles"
   />
@@ -34,12 +33,15 @@ export default {
   background-position: center;
   padding: (100px + $nav-height) 30px 100px;
   margin-bottom: 60px;
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 @include media-breakpoint-down(sm) {
   .hero-title {
     padding: (50px + $nav-height) 30px 50px;
     margin-bottom: 40px;
-    h1 {
+    h2 {
       font-size: 2rem;
     }
   }

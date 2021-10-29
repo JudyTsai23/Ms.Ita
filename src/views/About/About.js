@@ -21,35 +21,38 @@ export default {
 				time: "",
 				content: "",
 				rating: null,
-				checked: [],
 			},
 			topics: [{ text: "請選擇", value: null }, "餐廳環境", "關於餐點", "服務品質", "網站相關", "其他"],
 			show: true,
 		};
 	},
 	methods: {
-		onSubmit(event) {
-			event.preventDefault();
-			alert(JSON.stringify(this.form));
+		getValidationState({ dirty, validated, valid = null }) {
+			return dirty || validated ? valid : null;
 		},
-		onReset(event) {
-			event.preventDefault();
-			// Reset our form values
-			this.form.name = "";
-			this.form.phone = "";
-			this.form.email = "";
-			this.form.reply = "";
-			this.form.topic = null;
-			this.form.date = "";
-			this.form.time = "";
-			this.form.content = "";
-			this.form.rating = null;
-			this.form.checked = [];
+		onReset() {
 			// Trick to reset/clear native browser form validation state
 			this.show = false;
+			// Reset our form values
+			this.form = {
+				name: "",
+				phone: "",
+				email: "",
+				reply: "",
+				topic: null,
+				date: "",
+				time: "",
+				content: "",
+				rating: null,
+			};
+
 			this.$nextTick(() => {
+				this.$refs.observer.reset();
 				this.show = true;
 			});
+		},
+		onSubmit() {
+			alert(JSON.stringify(this.form));
 		},
 	},
 	computed: {},

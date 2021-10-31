@@ -15,7 +15,7 @@
             </span>
             <br />
             <span class="sub-title">
-              Enjoy food. &nbsp; Relax. &nbsp; Have a Good day.
+              Enjoy food. Relax. Have a Good day.
             </span>
           </div>
         </template>
@@ -27,7 +27,7 @@
                   fluid-grow
                   id="slideImg"
                   class="img"
-                  :src="require(`@/assets/img/slide/` + item)"
+                  :src="require(`@/assets/img/banner/slide/` + item)"
                 />
               </template>
             </b-carousel-slide>
@@ -50,7 +50,7 @@
                     blank-color="#444422"
                     center
                     fluid
-                    :src="require(`@/assets/img/category/` + item.pic)"
+                    :src="require(`@/assets/img/` + item.pic)"
                   />
                 </router-link>
                 <p class="text-center label mt-2">{{ item.label }}</p>
@@ -88,7 +88,7 @@
               <h4 class="text mb-5">訊息專區</h4>
               <b-img
                 class="img"
-                :src="require(`@/assets/img/home/message.png`)"
+                :src="require(`@/assets/img/other/message.png`)"
               />
             </b-col>
           </b-row>
@@ -102,7 +102,7 @@
               <h4 class="text mb-5">餐廳位置</h4>
               <b-img-lazy
                 class="img"
-                :src="require(`@/assets/img/home/location.png`)"
+                :src="require(`@/assets/img/other/location.png`)"
               />
             </b-col>
             <b-col md="8" class="mb-5 mt-md-5">
@@ -127,7 +127,7 @@
             <b-col md="6" class="text-center mb-5 mb-md-0">
               <b-img-lazy
                 class="img"
-                :src="require(`@/assets/img/openTime.jpg`)"
+                :src="require(`@/assets/img/restaurant/view01.jpg`)"
               />
             </b-col>
             <!-- 文字 -->
@@ -193,9 +193,11 @@
     letter-spacing: 1px;
     .title {
       font-size: 24px;
+      font-style: italic;
     }
     .sub-title {
       font-size: 15px;
+      font-style: italic;
     }
   }
   .img {
@@ -289,6 +291,7 @@
   }
   // 營業時間
   .open-time-bg {
+    margin-bottom: 70px;
     .open-time {
       width: 70%;
       margin: auto;

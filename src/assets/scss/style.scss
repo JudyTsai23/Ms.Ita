@@ -1,32 +1,28 @@
 // Define your variable overrides here
 // must be loaded before bootstrap's scss
 @import "custom-settings";
+@import "fonts";
 
 // Include Bootstrap and BootstrapVue SCSS files
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~bootstrap-vue/src/index.scss";
 
 // General style overrides and custom classes
-@font-face {
-	font-family: "Libre Baskerville";
-	src: url("../font/Libre-Baskerville/LibreBaskerville-Regular.ttf");
-}
-
 body {
-	background-color: white; //just a test
-	font-family: "Libre Baskerville";
-	letter-spacing: 0.5px;
+  background-color: white; //just a test
+  font-family: "Libre Baskerville";
+  letter-spacing: 0.5px;
 }
 .max-container {
-	max-width: 1400px;
-	margin-left: auto;
-	margin-right: auto;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .section {
-	padding-top: 60px;
-	padding-bottom: 60px;
-	@include media-breakpoint-up(md) {
-		padding-top: 80px;
-		padding-bottom: 80px;
-	}
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @include media-breakpoint-up(md) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
 }

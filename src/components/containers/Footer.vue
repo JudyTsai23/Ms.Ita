@@ -63,7 +63,7 @@ export default {
   background-color: #001a00e5;
   opacity: 1;
   color: lightgray;
-  margin-top: 70px;
+  // margin-top: 70px;
   padding-top: 3vh;
   font-size: 12px;
 

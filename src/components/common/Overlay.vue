@@ -5,6 +5,7 @@
     spinner-variant="warning"
     :show="isShow"
     no-wrap
+    fixed
   ></b-overlay>
 </template>
 <script>

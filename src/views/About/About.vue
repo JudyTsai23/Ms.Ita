@@ -3,7 +3,7 @@
     <global-title
       title="關於我們"
       overlay="#466050"
-      :image="require(`@/assets/img/page-hero/about-hero.jpg`)"
+      :image="require(`@/assets/img/banner/about-hero.jpg`)"
     />
     <!-- 餐廳介紹 -->
     <div
@@ -39,7 +39,7 @@
           >
             <b-row align-v="center" cols-md="1">
               <b-col class="info-illustration p-4" sm="5">
-                <b-img :src="require(`@/assets/img/shop.svg`)" />
+                <b-img :src="require(`@/assets/img/other/shop.svg`)" />
               </b-col>
               <b-col>
                 <div class="mt-4">

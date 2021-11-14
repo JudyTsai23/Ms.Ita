@@ -8,6 +8,8 @@
 @import "~bootstrap-vue/src/index.scss";
 
 // General style overrides and custom classes
+@import "text";
+
 body {
   background-color: white; //just a test
   font-family: "Libre Baskerville";

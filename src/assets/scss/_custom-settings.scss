@@ -39,6 +39,15 @@ $container-max-widths: (
   xl: 1140px,
   // hd: 1400px,,
 );
+
+// --margin & padding
+$spacers: (
+  4b: 32px,
+  6: 60px,
+  7: 80px,
+);
+
+// custom Variables
 $nav-height: 66px;
 
 // mixins

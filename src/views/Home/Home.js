@@ -35,19 +35,18 @@ export default {
         },
         {
           title: "[活動]",
-          content:
-            "打卡送飲品! 凡消費加打卡，tag店家帳號，免費送一杯飲品! 不限金額品項，有打有送!",
+          content: "打卡送飲品! 凡消費加打卡，tag店家帳號，免費送一杯飲品! 不限金額品項，有打有送!",
           link: "#",
         },
       ],
     };
   },
   mounted() {
-    this.$store.commit("isShowLoading", true);
-    setTimeout(() => {
-      // 測試用
-      this.$store.commit("isShowLoading", false);
-    }, 5000);
+    // this.$store.commit("isShowLoading", true);
+    // setTimeout(() => {
+    //   // 測試用
+    //   this.$store.commit("isShowLoading", false);
+    // }, 5000);
   },
   methods: {},
 };

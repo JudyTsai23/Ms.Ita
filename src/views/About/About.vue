@@ -337,4 +337,7 @@
     }
   }
 }
+#input-topic :disabled {
+  display: none;
+}
 </style>

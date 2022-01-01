@@ -26,17 +26,11 @@
             <b-col>
               <hr class="footer-hr" />
               <b-row>
-                <b-col
-                  >Photo by
-                  <a
-                    href="https://unsplash.com/s/photos/italian-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                    >Unsplash
-                  </a>
-                  | Icons by BootstrapVue and
-                  <a href="https://www.flaticon.com/" title="Flaticon"
-                    >Flaticon.com</a
-                  ></b-col
-                >
+                <b-col>
+                  Icons by BootstrapVue,
+                  <a href="https://www.flaticon.com/" title="Flaticon">Flaticon.com</a>
+                  and <a target="_blank" href="https://icons8.com">Icons8</a>
+                </b-col>
               </b-row>
               <b-row>
                 <b-col>此為練習用網站，不為商業所用。</b-col>

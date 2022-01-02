@@ -105,6 +105,7 @@
               <router-link to="#"><b-icon class="icon mr-4" icon="instagram"></b-icon></router-link>
               <router-link to="#"><b-icon class="icon" icon="twitter"></b-icon></router-link>
             </div>
+            <!-- <div class="mt-3"><b-button variant="primary-darker" @click="serverTest()">測試按鈕</b-button></div> -->
           </b-col>
         </b-row>
       </div>

@@ -1,3 +1,5 @@
+import AjaxService from "@/services/ajaxService.js";
+
 export default {
   name: "Home",
   data() {
@@ -48,5 +50,18 @@ export default {
     //   this.$store.commit("isShowLoading", false);
     // }, 5000);
   },
-  methods: {},
+  methods: {
+    serverTest() {
+      AjaxService.get(
+        "/server/test",
+        (successResp) => {
+          console.log(successResp);
+        },
+        (errorResp) => {
+          console.log("error");
+          console.log(errorResp);
+        }
+      );
+    },
+  },
 };

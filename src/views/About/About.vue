@@ -13,11 +13,11 @@
     >
       <b-container>
         <b-row align-v="center" align-h="around">
-          <b-col cols="11" md="5" xl="4" order-md="1">
-            <h3 class="font-weight-bold">{{ intro.title }}</h3>
-            <p class="my-4">{{ intro.content }}</p>
+          <b-col cols="11" md="7" lg="5" order-md="1">
+            <h3 class="fz-title-middle font-weight-bold">{{ intro.title }}</h3>
+            <p class="fz-content-middle my-4">{{ intro.content }}</p>
           </b-col>
-          <b-col class="img" cols="11" md="6">
+          <b-col class="img" cols="11" md="5" lg="4">
             <b-img-lazy :src="intro.image" fluid />
           </b-col>
         </b-row>
@@ -306,8 +306,6 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 .intro {
-  // @include font-size(1.5rem);
-  font-size: 18px;
   &:nth-child(odd) {
     background-color: $secondary-light;
   }
@@ -316,9 +314,6 @@
       order: 2;
       text-align: right;
     }
-  }
-  @include media-breakpoint-up(xl) {
-    font-size: 24px;
   }
 }
 .contact {

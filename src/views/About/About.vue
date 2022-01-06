@@ -79,66 +79,27 @@
                   v-if="show"
                 >
                   <!-- 姓名 text -->
-                  <validation-provider
-                    name="姓名"
-                    rules="required"
-                    v-slot="validationContext"
-                  >
-                    <b-form-group
-                      label="* 姓名："
-                      label-for="input-name"
-                      label-cols-md="3"
-                      label-align-md="right"
-                    >
-                      <b-form-input
-                        id="input-name"
-                        v-model="form.name"
-                        placeholder="請輸入姓名"
-                        :state="getValidationState(validationContext)"
-                      ></b-form-input>
-                      <b-form-invalid-feedback id="input-name-feedback">
-                        {{ validationContext.errors[0] }}
-                      </b-form-invalid-feedback>
-                    </b-form-group>
-                  </validation-provider>
+
+                  <FormItem :value.sync="form.name" fieldName="姓名" required />
+
                   <!-- 電話 tel -->
-                  <b-form-group
-                    label="聯絡電話："
-                    label-for="input-phone"
-                    label-cols-md="3"
-                    label-align-md="right"
+                  <!-- TODO:電話不需驗證 -->
+                  <FormItem
+                    :value.sync="form.phone"
+                    fieldName="聯絡電話"
+                    inputType="tel"
                     description="您輸入的電話為聯繫使用，絕不做其他用途"
-                  >
-                    <b-form-input
-                      id="input-phone"
-                      v-model="form.phone"
-                      type="tel"
-                      placeholder="請輸入電話"
-                    ></b-form-input>
-                  </b-form-group>
+                  />
+
                   <!-- Email email -->
-                  <validation-provider
-                    name="Email"
-                    rules="required|email"
-                    v-slot="validationContext"
+                  <FormItem
+                    :value.sync="form.email"
+                    fieldName="Email"
+                    inputType="email"
+                    description="您輸入的Email為聯繫使用，絕不做其他用途"
+                    required
                   >
-                    <b-form-group
-                      label="* Email："
-                      label-for="input-mail"
-                      label-cols-md="3"
-                      label-align-md="right"
-                      description="您輸入的Email為聯繫使用，絕不做其他用途"
-                    >
-                      <b-form-input
-                        id="input-mail"
-                        v-model="form.email"
-                        type="email"
-                        placeholder="請輸入email"
-                        :state="getValidationState(validationContext)"
-                      ></b-form-input>
-                      <b-form-invalid-feedback id="input-mail-feedback">
-                        {{ validationContext.errors[0] }}
-                      </b-form-invalid-feedback>
+                    <template v-slot:after>
                       <b-form-checkbox
                         id="input-reply"
                         class="mt-2"
@@ -149,137 +110,55 @@
                       >
                         希望收到回覆
                       </b-form-checkbox>
-                    </b-form-group>
-                  </validation-provider>
-
+                    </template>
+                  </FormItem>
                   <!-- 主題 select -->
-                  <validation-provider
-                    name="回饋主題"
-                    rules="required"
-                    v-slot="validationContext"
-                  >
-                    <b-form-group
-                      label="* 回饋主題："
-                      label-for="input-topic"
-                      label-cols-md="3"
-                      label-align-md="right"
-                    >
-                      <b-form-select
-                        id="input-topic"
-                        v-model="form.topic"
-                        :options="topics"
-                        :state="getValidationState(validationContext)"
-                      ></b-form-select>
-                      <b-form-invalid-feedback id="input-topic-feedback">
-                        {{ validationContext.errors[0] }}
-                      </b-form-invalid-feedback>
-                    </b-form-group>
-                  </validation-provider>
+                  <FormItem
+                    :value.sync="form.topic"
+                    fieldName="回饋主題"
+                    inputType="select"
+                    :options="topics"
+                    required
+                  />
 
-                  <b-form-group
-                    label="* 用餐時間："
-                    label-for="input-date"
-                    label-cols-md="3"
-                    label-align-md="right"
-                  >
-                    <!-- 用餐日期 date -->
-                    <validation-provider
-                      name="用餐日期"
-                      rules="required"
-                      v-slot="validationContext"
-                    >
-                      <b-form-datepicker
-                        id="input-date"
-                        v-model="form.date"
-                        :max="maxDate"
-                        :date-format-options="{
-                          year: 'numeric',
-                          month: 'numeric',
-                          day: 'numeric',
-                          weekday: 'short',
-                        }"
-                        locale="zh"
-                        placeholder="請選擇日期"
-                        :state="getValidationState(validationContext)"
-                      ></b-form-datepicker>
-                      <b-form-invalid-feedback id="input-date-feedback">
-                        {{ validationContext.errors[0] }}
-                      </b-form-invalid-feedback>
-                    </validation-provider>
-                    <!-- 用餐時間 radio -->
-                    <validation-provider
-                      name="用餐時段"
-                      rules="required"
-                      v-slot="validationContext"
-                    >
-                      <div>
-                        <b-form-radio-group
-                          id="input-time"
-                          name="input-time"
-                          class="mt-2"
-                          v-model="form.time"
-                        >
-                          <b-form-radio
-                            value="lunch"
-                            :state="getValidationState(validationContext)"
-                            >午餐時段</b-form-radio
-                          >
-                          <b-form-radio
-                            value="dinner"
-                            :state="getValidationState(validationContext)"
-                            >晚餐時段</b-form-radio
-                          >
-                        </b-form-radio-group>
-                        <b-form-invalid-feedback
-                          :state="getValidationState(validationContext)"
-                          id="input-date-feedback"
-                        >
-                          {{ validationContext.errors[0] }}
-                        </b-form-invalid-feedback>
-                      </div>
-                    </validation-provider>
-                  </b-form-group>
+                  <!-- 用餐日期 date -->
+                  <FormItem
+                    :value.sync="form.date"
+                    fieldName="用餐日期"
+                    inputType="date"
+                    :datepickerMax="maxDate"
+                    required
+                    groupClass="mb-1"
+                  />
+
+                  <!-- 用餐時段 radio -->
+                  <FormItem
+                    :value.sync="form.time"
+                    fieldName="用餐時段"
+                    inputType="radio"
+                    :options="timeItems"
+                    noLabel
+                    required
+                  />
+
                   <!-- 意見 textarea -->
-                  <validation-provider
-                    name="詳細意見"
-                    rules="required"
-                    v-slot="validationContext"
-                  >
-                    <b-form-group
-                      label="* 詳細意見："
-                      label-for="input-content"
-                      label-cols-md="3"
-                      label-align-md="right"
-                    >
-                      <b-form-textarea
-                        id="input-content"
-                        v-model="form.content"
-                        placeholder="請將詳盡描述您的意見，好讓我們能夠理解您的需求。"
-                        rows="3"
-                        max-rows="8"
-                        :state="getValidationState(validationContext)"
-                      ></b-form-textarea>
-                      <b-form-invalid-feedback id="input-content-feedback">
-                        {{ validationContext.errors[0] }}
-                      </b-form-invalid-feedback>
-                    </b-form-group>
-                  </validation-provider>
+                  <FormItem
+                    :value.sync="form.content"
+                    fieldName="詳細意見"
+                    inputType="textarea"
+                    placeholder="請將詳盡描述您的意見，好讓我們能夠理解您的需求。"
+                    required
+                  />
+
                   <!-- 整體感受 rating -->
-                  <b-form-group
-                    label="整體感受："
-                    label-for="input-rating"
-                    label-cols-md="3"
-                    label-align-md="right"
-                  >
-                    <b-form-rating
-                      id="input-rating"
-                      v-model="form.rating"
-                      icon-empty="heart"
-                      icon-half="heart-half"
-                      icon-full="heart-fill"
-                      variant="secondary-dark"
-                    ></b-form-rating>
-                  </b-form-group>
+                  <!-- TODO:rating驗證無效 -->
+                  <FormItem
+                    :value.sync="form.rating"
+                    fieldName="整體感受"
+                    inputType="rating"
+                    required
+                  />
+
                   <!-- 表單按鈕 -->
                   <div class="text-center mt-4">
                     <b-button class="mr-4" type="submit" variant="primary"

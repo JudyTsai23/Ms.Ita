@@ -2,7 +2,7 @@
   <div>
     <global-title
       title="關於我們"
-      overlay="#466050"
+      overlay="#789E90"
       :image="require(`@/assets/img/banner/about-hero.jpg`)"
     />
     <!-- 餐廳介紹 -->

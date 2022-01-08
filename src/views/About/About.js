@@ -56,9 +56,6 @@ export default {
     };
   },
   methods: {
-    getValidationState({ dirty, validated, valid = null }) {
-      return dirty || validated ? valid : null;
-    },
     onReset() {
       // Trick to reset/clear native browser form validation state
       this.show = false;

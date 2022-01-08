@@ -15,7 +15,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto mr-auto">
           <b-nav-item class="mr-5" to="/home">首頁</b-nav-item>
-          <b-nav-item class="mr-5">訊息專區</b-nav-item>
+          <b-nav-item class="mr-5" to="/news">訊息專區</b-nav-item>
           <b-nav-item-dropdown class="mr-5 dropdown-list" text="美味餐點">
             <b-dropdown-item variant="primary">主菜</b-dropdown-item>
             <b-dropdown-item variant="primary">沙拉</b-dropdown-item>

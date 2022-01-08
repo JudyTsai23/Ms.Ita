@@ -12,7 +12,7 @@ const NewsDetail = () => import("@/views/News/NewsDetail.vue");
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: "hash",
+  mode: "history",
   linkActiveClass: "active",
   scrollBehavior: () => ({ y: 0 }),
   routes: configRoutes(),

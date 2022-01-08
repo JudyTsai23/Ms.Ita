@@ -55,18 +55,14 @@
       </b-col>
     </b-row>
     <!-- 分頁頁碼 -->
-    <b-pagination
+    <global-pagination
       v-model="currentPage"
+      :curr-page.sync="currentPage"
       :total-rows="rows"
       :per-page="perPage"
-      first-number
-      pills
-      align="center"
+      curr-color="secondary-light"
       class="mt-5 mt-md-7"
-    >
-      <template #prev-text><b-icon-chevron-left /></template>
-      <template #next-text><b-icon-chevron-right /></template>
-    </b-pagination>
+    />
   </div>
 </template>
 

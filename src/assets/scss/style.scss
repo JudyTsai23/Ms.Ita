@@ -28,17 +28,3 @@ body {
     padding-bottom: 80px;
   }
 }
-
-// 頁碼樣式調整
-.pagination {
-  .page-link {
-    color: $primary-darker;
-    font-size: 18px;
-    border: none;
-    margin: 0 20px;
-  }
-}
-.page-item.active .page-link {
-  background-color: $secondary-light;
-  color: $primary-darker;
-}

@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <!-- 置頂訊息 -->
-    <b-row align-h="center" class="pb-5 pb-lg-7 border-bottom border-other">
+    <b-row align-h="center" class="pb-5 pb-lg-7">
       <b-col cols="10" md="4" class="mb-3 mb-md-0">
         <router-link :to="`/news/${msgTop.id}`">
           <b-img fluid :src="msgTop.image" />
@@ -54,11 +54,12 @@
         </router-link>
       </b-col>
     </b-row>
+    <!-- 分頁頁碼 -->
     <b-pagination
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
-      hide-goto-end-buttons
+      first-number
       pills
       align="center"
       class="mt-5 mt-md-7"
@@ -73,7 +74,6 @@
 
 <style lang="scss" scoped>
 .row {
-  border-bottom-style: dotted !important;
-  border-bottom-width: 2px !important;
+  border-bottom: 2px dotted $other-purple;
 }
 </style>

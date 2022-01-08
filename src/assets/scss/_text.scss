@@ -35,10 +35,10 @@
   }
 }
 .fz-content-middle {
-  //(例如：關於我們 內容)
+  //(例如：關於我們 內容、分頁頁碼、訊息專區內文 返回按鈕)
   font-size: 16px;
   @include media-breakpoint-up(md) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 .fz-content-large {

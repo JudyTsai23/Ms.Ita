@@ -1,14 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-// Container
-const Container = () => import("@/components/containers/Container.vue");
-// Home
-const Home = () => import("@/views/Home/Home.vue");
-const About = () => import("@/views/About/About.vue");
-const NewsList = () => import("@/views/News/NewsList.vue");
-const NewsDetail = () => import("@/views/News/NewsDetail.vue");
-
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -30,17 +22,17 @@ function configRoutes() {
     {
       path: "/",
       redirect: "/home",
-      component: Container,
+      component: () => import("@/components/containers/Container.vue"),
       children: [
         {
           path: "home",
           name: "Home",
-          component: Home,
+          component: () => import("@/views/Home/Home.vue"),
         },
         {
           path: "about",
           name: "About",
-          component: About,
+          component: () => import("@/views/About/About.vue"),
         },
         {
           path: "news",

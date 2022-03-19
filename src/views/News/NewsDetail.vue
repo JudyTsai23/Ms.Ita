@@ -3,7 +3,7 @@
     <b-row align-h="center" class="pb-4b pb-lg-5">
       <!-- 圖片 -->
       <b-col cols="12" md="5" class="mb-3 mb-md-0">
-        <b-img fluid :src="msg.image" />
+        <b-img fluid :src="msg.img" />
       </b-col>
       <!-- 內文 -->
       <b-col cols="12" md="7">

@@ -90,7 +90,7 @@ const News = {
   getNews() {
     let news = [];
     newsList.forEach((item) => {
-      let news = {
+      let newsItem = {
         id: item.id,
         type: item.type,
         title: item.title,
@@ -98,7 +98,7 @@ const News = {
         img: item.img,
         time: item.time,
       };
-      news.push(news);
+      news.push(newsItem);
     });
     return news;
   },
@@ -134,6 +134,11 @@ const News = {
     });
     console.log(homeNews);
     return homeNews;
+  },
+  // 取得訊息總數
+  newsTotal() {
+    console.log(newsList.length);
+    return newsList.length;
   },
 };
 // FIXME 之後會改成查後端

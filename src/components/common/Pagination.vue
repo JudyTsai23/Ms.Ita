@@ -1,14 +1,5 @@
 <template>
-  <b-pagination
-    v-model="parentValue"
-    :total-rows="totalRows"
-    :per-page="perPage"
-    first-number
-    pills
-    align="center"
-    class="fz-content-middle"
-    :class="currColor"
-  >
+  <b-pagination v-model="parentValue" :total-rows="totalRows" :per-page="perPage" first-number pills align="center" class="fz-content-middle" :class="currColor">
     <template #prev-text><b-icon-chevron-left /></template>
     <template #next-text><b-icon-chevron-right /></template>
     <template #last-text><b-icon-chevron-double-right /></template>
@@ -45,11 +36,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~bootstrap/scss/mixins/breakpoints";
 
 // 頁碼樣式調整-去除外框、間距拉開
-.pagination {
+.pagination::v-deep {
   .page-link {
     color: $primary-darker;
     border: none;
@@ -61,32 +52,32 @@ export default {
 }
 
 // 當前頁的底色塊及文字顏色設定 (預設為primary)
-.pagination.primary-light .page-item.active .page-link {
+.pagination.primary-light::v-deep .page-item.active .page-link {
   background-color: $primary-light;
   color: $primary-darker;
 }
-.pagination.primary-lighter .page-item.active .page-link {
+.pagination.primary-lighter::v-deep .page-item.active .page-link {
   background-color: $primary-lighter;
   color: $primary-darker;
 }
-.pagination.primary-dark .page-item.active .page-link {
+.pagination.primary-dark::v-deep .page-item.active .page-link {
   background-color: $primary-dark;
 }
-.pagination.primary-darker .page-item.active .page-link {
+.pagination.primary-darker::v-deep .page-item.active .page-link {
   background-color: $primary-darker;
 }
-.pagination.secondary .page-item.active .page-link {
+.pagination.secondary::v-deep .page-item.active .page-link {
   background-color: $secondary;
   color: $primary-darker;
 }
-.pagination.secondary-light .page-item.active .page-link {
+.pagination.secondary-light::v-deep .page-item.active .page-link {
   background-color: $secondary-light;
   color: $primary-darker;
 }
-.pagination.secondary-dark .page-item.active .page-link {
+.pagination.secondary-dark::v-deep .page-item.active .page-link {
   background-color: $secondary-dark;
 }
-.pagination.other .page-item.active .page-link {
+.pagination.other::v-deep .page-item.active .page-link {
   background-color: $other-purple;
   color: $primary-darker;
 }

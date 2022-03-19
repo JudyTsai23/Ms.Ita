@@ -47,6 +47,11 @@ function configRoutes() {
             { path: ":id(\\d+)", component: () => import("@/views/News/NewsDetail.vue") },
           ],
         },
+        {
+          path: "menu/:type",
+          name: "Menu",
+          component: () => import("@/views/Menu/Menu.vue"),
+        },
       ],
     },
   ];

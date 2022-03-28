@@ -14,7 +14,7 @@
           <b-nav-item class="mr-5" to="/news">訊息專區</b-nav-item>
           <b-nav-item-dropdown class="mr-5 dropdown-list" text="美味餐點">
             <div v-for="(item, key) in menuCategories" :key="key">
-              <b-dropdown-item variant="primary" :to="`/menu/${key}`">{{ item.name }}</b-dropdown-item>
+              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${key}`">{{ item.name }}</b-dropdown-item>
             </div>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown class="mr-5" text="線上預訂">

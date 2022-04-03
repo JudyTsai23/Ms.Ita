@@ -40,7 +40,6 @@ export default {
         (successResp) => {
           if (successResp.restData) {
             let resultList = successResp.restData;
-            console.log(resultList);
             this.newsList = resultList.map((item) => {
               let news = {
                 newsType: item.type,

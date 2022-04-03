@@ -7,22 +7,25 @@ const AjaxService = {
   post(url, param, successCallBack, failCallBack) {
     Axios.post(url, param, {})
       .then((resp) => {
-        if (resp) {
+        if (successCallBack) {
           successCallBack(resp.data);
           console.log(CLASS_NAME + "post success!");
+          sessionStorage.getItem("item");
         }
       })
       .catch((resp) => {
         console.log(CLASS_NAME + "post error!");
         console.log(resp);
-        failCallBack(resp);
+        if (failCallBack) {
+          failCallBack(resp);
+        }
       });
   },
   // get request
   get(url, successCallBack, failCallBack) {
     Axios.get(url, {}, {})
       .then((resp) => {
-        if (resp) {
+        if (successCallBack) {
           successCallBack(resp.data);
           console.log(CLASS_NAME + "get success!");
         }
@@ -30,7 +33,9 @@ const AjaxService = {
       .catch((resp) => {
         console.log(CLASS_NAME + "get error!");
         console.log(resp);
-        failCallBack(resp);
+        if (failCallBack) {
+          failCallBack(resp);
+        }
       });
   },
 };

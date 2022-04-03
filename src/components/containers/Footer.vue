@@ -1,7 +1,7 @@
 <template>
   <footer class="footer pt-2">
     <div class="footer-inside">
-      <div class="d-flex justify-content-between align-items-center py-3">
+      <div class="d-flex justify-content-between align-items-center py-4">
         <img class="logo" src="@/assets/img/logo/logo2-bold.svg" />
         <div class="d-flex flex-column text-right">
           <span>
@@ -10,7 +10,7 @@
             and <a target="_blank" href="https://icons8.com">Icons8</a>
           </span>
           <span>
-            此為練習用網站，不為商業所用。
+            此為練習用網站，不為商業所用
           </span>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default {
     margin: auto;
 
     .logo {
-      height: 70px;
+      height: 10vh;
     }
     a {
       @include router-link(rgb(111, 131, 111));

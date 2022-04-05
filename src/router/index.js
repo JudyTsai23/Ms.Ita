@@ -48,7 +48,7 @@ function configRoutes() {
           ],
         },
         {
-          path: "menu/:type",
+          path: "menu/:category",
           name: "Menu",
           component: () => import("@/views/Menu/Menu.vue"),
         },

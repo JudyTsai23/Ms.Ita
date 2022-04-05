@@ -1,5 +1,15 @@
 <template>
-  <b-pagination v-model="parentValue" :total-rows="totalRows" :per-page="perPage" first-number pills align="center" class="fz-content-middle" :class="currColor">
+  <b-pagination
+    v-model="parentValue"
+    :total-rows="totalRows"
+    :per-page="perPage"
+    first-number
+    pills
+    align="center"
+    class="fz-content-middle"
+    :class="currColor"
+    :hide-goto-end-buttons="totalRows <= perPage"
+  >
     <template #prev-text><b-icon-chevron-left /></template>
     <template #next-text><b-icon-chevron-right /></template>
     <template #last-text><b-icon-chevron-double-right /></template>

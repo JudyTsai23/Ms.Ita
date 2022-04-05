@@ -1,153 +1,83 @@
-import Pagination from "@/components/common/Pagination.vue";
+import AjaxService from "@/services/ajaxService.js";
+import MenuCategories from "@/mock/menuCategories.js";
 
 export default {
   name: "Menu",
-  components: {
-    "gobal-pagination": Pagination,
-  },
   data() {
     return {
+      // 當前餐點類別
+      currentCategory: this.$route.params.category,
       // 類別
-      categories: {
-        salad: { name: "沙拉", icon: "Vegetables" },
-        pasta: { name: "義大利麵", icon: "Spaghetti" },
-        pizza: { name: "披薩", icon: "Pizza" },
-        dessert: { name: "甜點", icon: "Desserts" },
-        "soft-drinks": { name: "飲料", icon: "Coffee" },
-        drinks: { name: "酒類", icon: "Wine" },
-      },
-      meals: {
-        紅醬: [
-          {
-            id: "1",
-            category: "義大利麵",
-            sub_category: "紅醬",
-            name: "茄汁海鮮扁麵",
-            price: "200",
-            image: "https://source.unsplash.com/BhEXW19sW1M/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-          {
-            id: "2",
-            category: "義大利麵",
-            sub_category: "紅醬",
-            name: "茄汁鮮蔬義大利麵",
-            price: "200",
-            image: "https://source.unsplash.com/BhEXW19sW1M/500x450",
-            description: "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅",
-            note: "",
-          },
-          {
-            id: "3",
-            category: "義大利麵",
-            sub_category: "紅醬",
-            name: "茄汁塘揚義大利麵",
-            price: "200",
-            image: "https://source.unsplash.com/OC3lZI9P6kU/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳",
-            note: "",
-          },
-          {
-            id: "4",
-            category: "義大利麵",
-            sub_category: "紅醬",
-            name: "茄汁焗烤筆管麵",
-            price: "200",
-            image: "https://source.unsplash.com/flFd8L7_B3g/500x450",
-            description:
-              "長期接歡這個額，謝您，看來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-          {
-            id: "5",
-            category: "義大利麵",
-            sub_category: "紅醬",
-            name: "茄汁辣味義大利麵",
-            price: "200",
-            image: "https://source.unsplash.com/TtadVut4jsg/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-        ],
-        白醬: [
-          {
-            id: "6",
-            category: "義大利麵",
-            sub_category: "白醬",
-            name: "白醬海鮮義大利麵",
-            price: "200",
-            image: "https://source.unsplash.com/BhEXW19sW1M/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-          {
-            id: "7",
-            category: "義大利麵",
-            sub_category: "白醬",
-            name: "白醬鮮蔬義大利麵",
-            price: "200",
-            image: "https://source.unsplash.com/BhEXW19sW1M/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-          {
-            id: "8",
-            category: "義大利麵",
-            sub_category: "白醬",
-            name: "白醬塘揚義大利麵",
-            price: "200",
-            image: "https://source.unsplash.com/BhEXW19sW1M/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-          {
-            id: "9",
-            category: "義大利麵",
-            sub_category: "白醬",
-            name: "白醬焗烤筆管麵",
-            price: "200",
-            image: "https://source.unsplash.com/aeESmmFKH0M/500x450",
-            description:
-              "長期接歡這個額，謝您，看了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級，這兩以為桃魔法",
-            content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-            note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-          },
-        ],
-      },
+      categories: MenuCategories.getMenuCategories(),
+      // 取得的餐點資料
+      allMealsData: [],
+      // 依次分類分組的餐點列表
+      mealsList: {},
       // 當前點擊的餐點項目的資料
-      currentMeal: {
-        id: "9",
-        category: "義大利麵",
-        sub_category: "白醬",
-        name: "白醬焗烤筆管麵",
-        price: "200",
-        image: "https://source.unsplash.com/aeESmmFKH0M/500x450",
-        description:
-          "長期接歡這個額了不過，雜誌可以的是比較候好累強迫以程度，來想我現在直接，大家不偷說。那時候，出來看一下，好感動有要知道我喔喔長的，意義最比較有先時候，人會出，真的不了的生活真的。的貓種東西覺得這的超級",
-        content: "香酥馬芝拉條 / 馬鈴薯皮 / 紐約辣雞翅 / 田納西芝麻雞柳 / 酥炸魚柳條 / 酥炸洋蔥圈",
-        note: "題的呀我主角除了，讓我要交換的覺偷偷的帳號偷快部分",
-      },
-      // 當前頁數
-      currentPage: 1,
-      // 資料總筆數
-      rows: 100,
-      // 每頁顯示筆數
-      perPage: 4,
+      currentMeal: {},
     };
+  },
+  mounted() {
+    this.init();
+  },
+  computed: {
+    // 當前餐點種類的名稱
+    currentCategoryName() {
+      let currentCategoryData = this.categories.find((cate) => {
+        return cate.slug == this.currentCategory;
+      });
+      return currentCategoryData.name;
+    },
+  },
+  watch: {
+    "$route.params.category"(val, oldVal) {
+      this.currentCategory = val;
+      this.getCategoryMeals();
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+  methods: {
+    init() {
+      this.getCategoryMeals();
+    },
+    getCategoryMeals() {
+      AjaxService.get(
+        "/server/menu/" + this.currentCategory,
+        (successResp) => {
+          this.allMealsData = successResp.restData.map((item) => {
+            let meal = {
+              mealId: item.id,
+              mealName: item.name,
+              mealCategory: item.category,
+              mealSubCategory: item.subCategory,
+              mealPrice: item.price,
+              mealDescription: item.description,
+              mealIngredient: item.ingredient,
+              mealNote: item.note,
+              mealImage: item.image,
+            };
+            return meal;
+          });
+          this.mealsList = this.groupBy(this.allMealsData, "mealSubCategory");
+        },
+        (errorResp) => {
+          console.log("查詢定分類餐點失敗!");
+          console.log(errorResp);
+        }
+      );
+    },
+    groupBy(data, targetColumn) {
+      return data.reduce(function(rv, x) {
+        (rv[x[targetColumn]] = rv[x[targetColumn]] || []).push(x);
+        return rv;
+      }, {});
+    },
+    ChangeCurrentMeal(val) {
+      this.currentMeal = val;
+    },
   },
 };

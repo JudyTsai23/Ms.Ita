@@ -3,15 +3,15 @@
     <b-row align-h="center" class="pb-4b pb-lg-5">
       <!-- 圖片 -->
       <b-col cols="12" md="5" class="mb-3 mb-md-0">
-        <b-img fluid :src="msg.img" />
+        <b-img fluid :src="msg.image" />
       </b-col>
       <!-- 內文 -->
       <b-col cols="12" md="7">
         <h3 class="fz-title text-primary font-weight-bold mb-2">
           {{ msg.title }}
         </h3>
-        <div class="fz-content text-muted mb-3">{{ msg.created_at }}</div>
-        <p v-html="msg.content" class="fz-content text-primary-light"></p>
+        <div class="fz-content text-muted mb-3">{{ msg.publishTime }}</div>
+        <div v-html="msg.content" class="fz-content text-primary-light"></div>
       </b-col>
     </b-row>
     <!-- 下方按鈕 -->

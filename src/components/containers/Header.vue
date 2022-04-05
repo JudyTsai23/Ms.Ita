@@ -13,8 +13,8 @@
           <b-nav-item class="mr-5" to="/home">首頁</b-nav-item>
           <b-nav-item class="mr-5" to="/news">訊息專區</b-nav-item>
           <b-nav-item-dropdown class="mr-5 dropdown-list" text="美味餐點">
-            <div v-for="(item, key) in menuCategories" :key="key">
-              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${key}`">{{ item.name }}</b-dropdown-item>
+            <div v-for="item in menuCategories" :key="item.slug">
+              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${item.slug}`">{{ item.name }}</b-dropdown-item>
             </div>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown class="mr-5" text="線上預訂">
@@ -28,19 +28,14 @@
   </div>
 </template>
 <script>
+import MenuCategories from "@/mock/menuCategories.js";
+
 export default {
   name: "Header",
   data() {
     return {
       // 類別
-      menuCategories: {
-        salad: { name: "沙拉", icon: "Vegetables" },
-        pasta: { name: "義大利麵", icon: "Spaghetti" },
-        pizza: { name: "披薩", icon: "Pizza" },
-        dessert: { name: "甜點", icon: "Desserts" },
-        "soft-drinks": { name: "飲料", icon: "Coffee" },
-        drinks: { name: "酒類", icon: "Wine" },
-      },
+      menuCategories: MenuCategories.getMenuCategoriesName(),
     };
   },
 };

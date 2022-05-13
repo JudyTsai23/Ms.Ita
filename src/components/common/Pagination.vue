@@ -40,6 +40,8 @@ export default {
       },
       set(val) {
         this.$emit("update:currPage", val);
+        // 用"changePage"指定切換頁數要執行的程式
+        this.$emit("changePage");
       },
     },
   },

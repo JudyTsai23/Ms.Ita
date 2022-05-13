@@ -49,7 +49,7 @@
       </template>
     </template>
     <!-- 分頁頁碼 -->
-    <global-pagination :curr-page.sync="currentPage" :total-rows="rows" :per-page="perPage" curr-color="secondary-light" class="mt-5 mt-md-7" />
+    <global-pagination :curr-page.sync="currentPage" :total-rows="rows" :per-page="perPage" curr-color="secondary-light" class="mt-5 mt-md-7" @changePage="changePage" />
   </div>
 </template>
 

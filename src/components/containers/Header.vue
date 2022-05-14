@@ -13,8 +13,8 @@
           <b-nav-item class="mr-5" to="/home">首頁</b-nav-item>
           <b-nav-item class="mr-5" to="/news">訊息專區</b-nav-item>
           <b-nav-item-dropdown class="mr-5 dropdown-list" text="美味餐點">
-            <div v-for="item in menuCategories" :key="item.slug">
-              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${item.slug}`">{{ item.name }}</b-dropdown-item>
+            <div v-for="category in menuCategories" :key="category.slug">
+              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${category.slug}`">{{ category.name }}</b-dropdown-item>
             </div>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown class="mr-5" text="線上預訂">

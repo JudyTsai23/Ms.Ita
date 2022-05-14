@@ -71,9 +71,9 @@ export default {
       );
     },
     groupBy(data, targetColumn) {
-      return data.reduce(function(rv, x) {
-        (rv[x[targetColumn]] = rv[x[targetColumn]] || []).push(x);
-        return rv;
+      return data.reduce(function(currResult, item) {
+        (currResult[item[targetColumn]] = currResult[item[targetColumn]] || []).push(item);
+        return currResult;
       }, {});
     },
     ChangeCurrentMeal(val) {

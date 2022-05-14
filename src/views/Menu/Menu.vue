@@ -3,10 +3,10 @@
     <global-title title="美味餐點" overlay="#C96759" :image="require(`@/assets/img/banner/menu-hero.jpg`)" />
 
     <b-nav align="center">
-      <template v-for="item in categories">
-        <b-nav-item class="px-2 px-md-3 px-lg-4 py-3" link-classes="fz-content-middle text-secondary-dark p-1" :to="`/menu/${item.slug}`" :key="item.slug">
-          <img class="nav-icon" :src="require(`@/assets/img/icon/${item.icon}.svg`)" alt="" />
-          {{ item.name }}
+      <template v-for="category in categories">
+        <b-nav-item class="px-2 px-md-3 px-lg-4 py-3" link-classes="fz-content-middle text-secondary-dark p-1" :to="`/menu/${category.slug}`" :key="category.slug">
+          <img class="nav-icon" :src="require(`@/assets/img/icon/${category.icon}.svg`)" alt="" />
+          {{ category.name }}
         </b-nav-item>
       </template>
     </b-nav>
@@ -16,28 +16,30 @@
         <h3 class="m-0">{{ currentCategoryName }}</h3>
         <b-icon icon="grid-fill" rotate="45" class="mx-3 mx-md-4b"></b-icon>
       </div>
-      <div v-for="(item, key) in mealsList" :key="key">
+      <div v-for="(categoryMeals, key) in mealsList" :key="key">
+        <!-- categoryMeals是單一子類別中所有餐點，key是餐點分類名稱 -->
         <h4 v-if="key != ''" class="text-center text-other mb-4b">
           <b-icon icon="square-fill" rotate="45" class="small" font-scale="0.5" shift-v="6"></b-icon>
           {{ key }}
           <b-icon icon="square-fill" rotate="45" class="" font-scale="0.5" shift-v="6"></b-icon>
         </h4>
         <b-row cols="2" cols-md="3" cols-lg="4" class="mb-6">
-          <b-col v-for="value in item" :key="value.index" class="px-3">
+          <b-col v-for="item in categoryMeals" :key="item.index" class="px-3">
+            <!-- item是單個餐點(object) -->
             <b-card
-              :title="value.mealName"
+              :title="item.mealName"
               title-tag="h5"
               footer-bg-variant="transparent"
               footer-border-variant="0"
-              :img-src="value.mealImage"
-              :img-alt="value.mealName"
+              :img-src="item.mealImage"
+              :img-alt="item.mealName"
               img-top
               class="fz-sub-title mb-5 shadow"
               v-b-modal.mealModal
-              @click="ChangeCurrentMeal(value)"
+              @click="ChangeCurrentMeal(item)"
             >
               <template #footer>
-                <div class="fz-content text-right">NT$ {{ value.mealPrice }}</div>
+                <div class="fz-content text-right">NT$ {{ item.mealPrice }}</div>
               </template>
             </b-card>
           </b-col>

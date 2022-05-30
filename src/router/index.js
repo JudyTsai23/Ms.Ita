@@ -35,6 +35,11 @@ function configRoutes() {
           component: () => import("@/views/About/About.vue"),
         },
         {
+          path: "contact",
+          name: "Contact",
+          component: () => import("@/views/Contact/Contact.vue"),
+        },
+        {
           path: "news",
           component: () => import("@/views/News/News.vue"),
           children: [

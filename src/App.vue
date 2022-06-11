@@ -1,5 +1,8 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <router-view></router-view>
+    <global-overlay></global-overlay>
+  </div>
 </template>
 
 <script>

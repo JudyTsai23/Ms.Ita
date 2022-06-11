@@ -8,9 +8,8 @@ export default new Vuex.Store({
     globalLoading: false,
   },
   mutations: {
-    // 是否顯示global overlay(loading)
-    isShowLoading(state, isShow) {
-      state.globalLoading = isShow;
+    set(state, [variable, value]) {
+      state[variable] = value;
     },
   },
   actions: {},

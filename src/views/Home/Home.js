@@ -30,6 +30,7 @@ export default {
     },
     // 取得首頁訊息
     getHomeNewsList() {
+      this.$store.commit("set", ["globalLoading", true]);
       let queryData = {
         count: 10,
         page: 1,
@@ -39,7 +40,7 @@ export default {
         queryData,
         (successResp) => {
           if (successResp.restData) {
-            let resultList = successResp.restData;
+            let resultList = successResp.restData.list;
             this.newsList = resultList.map((item) => {
               let news = {
                 newsType: item.type,
@@ -47,6 +48,7 @@ export default {
               };
               return news;
             });
+            this.$store.commit("set", ["globalLoading", false]);
             console.log("查詢特定範圍內的訊息成功!");
           }
         },

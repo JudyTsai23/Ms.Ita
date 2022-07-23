@@ -15,6 +15,8 @@ localize("zh_TW", TW);
 
 // css
 import "@/assets/scss/style.scss";
+import wow from "wowjs";
+import "wowjs/css/libs/animate.css";
 
 // global components
 import overlay from "@/components/common/Overlay.vue";
@@ -33,8 +35,10 @@ Vue.component("global-pagination", pagination);
 Vue.component("ValidationObserver", ValidationObserver);
 Vue.component("ValidationProvider", ValidationProvider);
 
+Vue.prototype.$wow = wow;
+
 new Vue({
-	router,
-	store,
-	render: (h) => h(App),
+  router,
+  store,
+  render: (h) => h(App),
 }).$mount("#app");

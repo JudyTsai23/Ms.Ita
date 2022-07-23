@@ -22,7 +22,10 @@ export default {
     };
   },
   mounted() {
+    new this.$wow.WOW({ live: false }).init();
+
     this.init();
+    // console.log(this.$store.state.menuSubCategory.getSpecCategorySub(4));
   },
   methods: {
     init() {
@@ -32,7 +35,7 @@ export default {
     getHomeNewsList() {
       this.$store.commit("set", ["globalLoading", true]);
       let queryData = {
-        count: 10,
+        count: 6,
         page: 1,
       };
       AjaxService.post(

@@ -4,7 +4,7 @@
     <!-- 意見回饋 -->
     <div class="contact section">
       <b-container>
-        <b-row class="">
+        <b-row class="wow fadeInUp">
           <!-- <b-col md="2" class="position-relative d-none d-md-block"><b-img class="position-absolute" style="bottom:0;width:350%" :src="require(`@/assets/img/write.png`)" /></b-col> -->
           <b-col md="10" offset-md="2">
             <!-- <h3 class="text-center font-weight-bold mb-4">聯絡我們</h3> -->
@@ -72,9 +72,10 @@
   @include media-breakpoint-up(md) {
     .row {
       background: url("~@/assets/img/other/write.png") no-repeat left bottom/500px auto;
+      // transform: rotate(5deg);
     }
     .card {
-      transform: rotate(-5deg);
+      // transform: rotate(-5deg);
     }
   }
   @include media-breakpoint-up(lg) {

@@ -34,6 +34,9 @@ export default {
       show: true,
     };
   },
+  mounted() {
+    new this.$wow.WOW({ live: false }).init();
+  },
   methods: {
     onReset() {
       // Trick to reset/clear native browser form validation state

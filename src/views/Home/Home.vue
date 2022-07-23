@@ -31,10 +31,12 @@
     <div class="category section bg-primary-light">
       <b-container>
         <b-row class="content" align-v="center" align-h="center">
-          <template v-for="item of categoryImg">
-            <b-col cols="6" md="3" :key="item.index">
+          <template v-for="(item, index) of categoryImg">
+            <b-col cols="6" md="3" :key="index">
               <router-link :to="item.link">
-                <b-img-lazy class="img shadow-lg rounded" rounded="circle" blank-color="#444422" center fluid :src="require(`@/assets/img/` + item.pic)" />
+                <div class="img-wrapper shadow-lg wow slideInDown" data-wow-duration="1.5s" :data-wow-delay="`${index * 0.02}s`">
+                  <b-img-lazy class="img" rounded="circle" blank-color="#444422" center fluid :src="require(`@/assets/img/` + item.pic)" />
+                </div>
               </router-link>
               <p class="text-center text-white mt-2">{{ item.label }}</p>
             </b-col>
@@ -46,37 +48,40 @@
     <div class="section">
       <b-container>
         <b-row class="msg-area" align-v="center" align-h="center">
+          <!-- 圖片 -->
+          <b-col md="4" class="wow fadeInUp order-md-2 text-center mt-0 mt-md-5" data-wow-duration="0.5s" data-wow-delay="0.3s" data-wow-offset="100">
+            <h4 class="text-primary-dark fz-title-middle mb-5">
+              訊息專區
+              <b-icon class="mt-1 mr-2" icon="arrow-right-circle" />
+            </h4>
+            <b-img class="msg-img" :src="require(`@/assets/img/other/message.png`)" />
+          </b-col>
           <!-- 訊息 -->
-          <b-col md="6" class="pl-5">
+          <b-col md="6" class="wow fadeInUp order-md-1 pl-5" data-wow-duration="0.8s" data-wow-delay="0s" data-wow-offset="100">
             <template v-for="(news, index) of newsList">
               <div :key="index">
                 <router-link :to="`${'/news/' + news.id}`">
-                  <div class="d-inline-flex align-items-center text-primary mb-3">
-                    <span class="mr-2">【{{ news.newsType }}】</span>
-                    <b-icon class="mr-2" icon="caret-right-fill" style="width: 13px;" />
-                    <span>{{ news.newsTitle }}</span>
+                  <div class="d-inline-flex text-primary mb-3">
+                    <span class="mr-2 flex-shrink-0">【{{ news.newsType }}】</span>
+                    <b-icon class="mt-1 mr-2" icon="caret-right-fill" style="width: 13px;" />
+                    <span class="align-self-start">{{ news.newsTitle }}</span>
                   </div>
                 </router-link>
               </div>
             </template>
           </b-col>
-          <!-- 圖片 -->
-          <b-col md="4" class="text-center mt-6 mt-md-0">
-            <h4 class="text-primary-dark fz-title-middle mb-5">訊息專區</h4>
-            <b-img class="msg-img" :src="require(`@/assets/img/other/message.png`)" />
-          </b-col>
         </b-row>
       </b-container>
     </div>
     <!-- 餐廳位置 -->
-    <div class="section bg-primary">
+    <div class="location section bg-primary">
       <b-container>
-        <b-row class="location" align-v="center" align-h="center">
-          <b-col md="4" class="text-center pt-5 pb-5">
+        <b-row align-v="center" align-h="center">
+          <b-col md="4" class="wow fadeInLeft text-center pt-5 pb-5" data-wow-offset="100">
             <h4 class="text-white fz-title-middle mb-5">餐廳位置</h4>
             <b-img-lazy class="img" :src="require(`@/assets/img/other/location.png`)" />
           </b-col>
-          <b-col md="7" class="text-center">
+          <b-col md="7" class="wow fadeInRight text-center" data-wow-offset="100">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.1233455472952!2d121.52087371484247!3d25.063808183958436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9448b78d849%3A0x5d8ebd86f1e02e1f!2z57SX5rGA5aic5aW96aOf!5e0!3m2!1szh-TW!2stw!4v1636878580396!5m2!1szh-TW!2stw"
               class="map"
@@ -90,7 +95,7 @@
     <!-- 營業時間 -->
     <div class="section open-time">
       <b-container>
-        <b-row class="text-primary-dark" align-v="center" align-h="center">
+        <b-row class="wow fadeIn text-primary-dark" data-wow-offset="100" align-v="center" align-h="center">
           <!-- 圖片 -->
           <b-col md="7" class="text-center mb-5 mb-md-0">
             <b-img-lazy class="img" :src="require(`@/assets/img/restaurant/view01.jpg`)" />
@@ -144,6 +149,9 @@
 }
 // 四個圈圈圖
 .category {
+  background-image: url("~@/assets/img/background/459.png");
+  background-blend-mode: multiply;
+
   .content {
     @include media-breakpoint-up(md) {
       width: 95%;
@@ -152,17 +160,29 @@
     @include media-breakpoint-up(lg) {
       width: 100%;
     }
-    .img {
-      object-fit: cover;
+    .img-wrapper {
       height: 200px;
       width: 200px;
+      margin: auto;
+      border-radius: 50%;
+      overflow: hidden;
+
       @include media-breakpoint-down(md) {
         height: 190px;
         width: 190px;
       }
+      .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .img:hover {
+        transform: scale(1.1);
+      }
     }
-    .img:hover {
-      box-shadow: 0 1rem 3rem rgb(0 0 0 / 55%) !important;
+    .img-wrapper:hover {
+      box-shadow: 0 1rem 3rem rgb(0 0 0 / 45%) !important;
     }
     .shadow-lg {
       box-shadow: 0 1rem 3rem rgb(0 0 0 / 30%) !important;
@@ -178,6 +198,8 @@
 }
 // 餐廳位置
 .location {
+  background-image: url("~@/assets/img/background/683.png");
+
   .img {
     width: 35%;
     @include media-breakpoint-up(md) {

@@ -25,7 +25,6 @@ export default {
     new this.$wow.WOW({ live: false }).init();
 
     this.init();
-    // console.log(this.$store.state.menuSubCategory.getSpecCategorySub(4));
   },
   methods: {
     init() {
@@ -46,8 +45,9 @@ export default {
             let resultList = successResp.restData.list;
             this.newsList = resultList.map((item) => {
               let news = {
-                newsType: item.type,
-                newsTitle: item.title,
+                id: item.id,
+                type: item.type,
+                title: item.title,
               };
               return news;
             });

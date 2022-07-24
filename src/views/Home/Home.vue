@@ -6,11 +6,11 @@
         <template #overlay>
           <b-img fluid class="mt-5 logo" :src="require(`@/assets/img/logo/logo2-bold.svg`)" />
           <div class="text-center logo-text">
-            <span class="title">
+            <span class="fz-title-middle title font-italic">
               Italian restaurant
             </span>
             <br />
-            <span class="sub-title">
+            <span class="fz-sub-title sub-title font-italic">
               Enjoy food. Relax. Have a Good day.
             </span>
           </div>
@@ -32,9 +32,9 @@
       <b-container>
         <b-row class="content" align-v="center" align-h="center">
           <template v-for="(item, index) of categoryImg">
-            <b-col cols="6" md="3" :key="index">
+            <b-col cols="6" lg="3" :key="index">
               <router-link :to="item.link">
-                <div class="img-wrapper shadow-lg wow slideInDown" data-wow-duration="1.5s" :data-wow-delay="`${index * 0.02}s`">
+                <div class="img-wrapper shadow-lg wow slideInDown" data-wow-duration="1.2s" :data-wow-delay="`${index * 0.02}s`">
                   <b-img-lazy class="img" rounded="circle" blank-color="#444422" center fluid :src="require(`@/assets/img/` + item.pic)" />
                 </div>
               </router-link>
@@ -49,22 +49,24 @@
       <b-container>
         <b-row class="msg-area" align-v="center" align-h="center">
           <!-- 圖片 -->
-          <b-col md="4" class="wow fadeInUp order-md-2 text-center mt-0 mt-md-5" data-wow-duration="0.5s" data-wow-delay="0.3s" data-wow-offset="100">
-            <h4 class="text-primary-dark fz-title-middle mb-5">
-              訊息專區
-              <b-icon class="mt-1 mr-2" icon="arrow-right-circle" />
-            </h4>
-            <b-img class="msg-img" :src="require(`@/assets/img/other/message.png`)" />
+          <b-col md="4" class="wow fadeInUp order-md-2 text-center mb-4" data-wow-duration="0.5s" data-wow-delay="0.3s" data-wow-offset="100">
+            <router-link to="/news" class="msg-link" style="text-decoration: none;">
+              <h4 class="d-flex justify-content-center align-items-center text-primary-dark fz-title-middle mb-5">
+                訊息專區
+                <b-icon class="arrow ml-3" icon="arrow-right-circle" />
+              </h4>
+              <b-img class="msg-img" :src="require(`@/assets/img/other/message.png`)" />
+            </router-link>
           </b-col>
           <!-- 訊息 -->
-          <b-col md="6" class="wow fadeInUp order-md-1 pl-5" data-wow-duration="0.8s" data-wow-delay="0s" data-wow-offset="100">
+          <b-col md="6" class="wow fadeInUp order-md-1 pt-1 pl-5 pl-md-4 pl-lg-5 mt-4" data-wow-duration="0.8s" data-wow-delay="0s" data-wow-offset="100">
             <template v-for="(news, index) of newsList">
               <div :key="index">
                 <router-link :to="`${'/news/' + news.id}`">
                   <div class="d-inline-flex text-primary mb-3">
-                    <span class="mr-2 flex-shrink-0">【{{ news.newsType }}】</span>
+                    <span class="mr-2 flex-shrink-0">【{{ news.type }}】</span>
                     <b-icon class="mt-1 mr-2" icon="caret-right-fill" style="width: 13px;" />
-                    <span class="align-self-start">{{ news.newsTitle }}</span>
+                    <span class="align-self-start">{{ news.title }}</span>
                   </div>
                 </router-link>
               </div>
@@ -81,13 +83,15 @@
             <h4 class="text-white fz-title-middle mb-5">餐廳位置</h4>
             <b-img-lazy class="img" :src="require(`@/assets/img/other/location.png`)" />
           </b-col>
-          <b-col md="7" class="wow fadeInRight text-center" data-wow-offset="100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.1233455472952!2d121.52087371484247!3d25.063808183958436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9448b78d849%3A0x5d8ebd86f1e02e1f!2z57SX5rGA5aic5aW96aOf!5e0!3m2!1szh-TW!2stw!4v1636878580396!5m2!1szh-TW!2stw"
-              class="map"
-              allowfullscreen="false"
-              loading="lazy"
-            ></iframe>
+          <b-col md="7" class="wow fadeInRight" data-wow-offset="100">
+            <b-card class="map ml-4 ml-lg-5">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.1233455472952!2d121.52087371484247!3d25.063808183958436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9448b78d849%3A0x5d8ebd86f1e02e1f!2z57SX5rGA5aic5aW96aOf!5e0!3m2!1szh-TW!2stw!4v1636878580396!5m2!1szh-TW!2stw"
+                class="h-100 w-100 border-0"
+                allowfullscreen="false"
+                loading="lazy"
+              ></iframe>
+            </b-card>
           </b-col>
         </b-row>
       </b-container>
@@ -129,16 +133,14 @@
     height: 150px;
   }
   .logo-text {
-    color: #dbdbbd;
     font-weight: 400;
     letter-spacing: 1px;
+
     .title {
-      font-size: 24px;
-      font-style: italic;
+      color: $secondary-light;
     }
     .sub-title {
-      font-size: 15px;
-      font-style: italic;
+      color: $secondary;
     }
   }
   .img {
@@ -191,9 +193,17 @@
 }
 // 訊息專區
 .msg-area {
-  .msg-img {
-    width: 120px;
-    height: 150px;
+  .msg-link {
+    h4 {
+      transition: 0.5s;
+    }
+    .msg-img {
+      width: 120px;
+      height: 150px;
+    }
+  }
+  .msg-link h4:hover {
+    margin-left: 30px;
   }
 }
 // 餐廳位置
@@ -207,16 +217,15 @@
     }
   }
   .map {
-    width: 65vw;
+    width: 90%;
     height: 50vh;
     border: none;
+
     @include media-breakpoint-up(md) {
-      width: 40vw;
-      height: 50vh;
+      width: 45vw;
     }
     @include media-breakpoint-up(xl) {
-      width: 35vw;
-      height: 50vh;
+      width: 40vw;
     }
   }
 }

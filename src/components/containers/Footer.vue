@@ -4,6 +4,7 @@
       <div class="d-flex justify-content-between align-items-center py-4">
         <img class="logo" src="@/assets/img/logo/logo2-bold.svg" />
         <div class="d-flex flex-column text-right">
+          <span>Ms.Ita © 2022</span>
           <span>
             Icons by BootstrapVue,
             <a href="https://www.flaticon.com/" title="Flaticon">Flaticon.com</a>

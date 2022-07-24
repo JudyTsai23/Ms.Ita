@@ -18,8 +18,8 @@
             </div>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown class="mr-3 mr-lg-5" text="線上預訂">
-            <b-dropdown-item variant="primary">訂位</b-dropdown-item>
-            <b-dropdown-item variant="primary">訂餐</b-dropdown-item>
+            <b-dropdown-item variant="primary" href="https://inline.app/zh/reserve_with_google" target="_blank">訂位</b-dropdown-item>
+            <b-dropdown-item variant="primary" href="https://inline.app/zh/onlineorder" target="_blank">訂餐</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item class="mr-3 mr-lg-5" to="/about">關於我們</b-nav-item>
           <b-nav-item class="mr-3 mr-lg-5" to="/contact">意見回饋</b-nav-item>

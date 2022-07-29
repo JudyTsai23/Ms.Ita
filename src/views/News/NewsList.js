@@ -22,6 +22,7 @@ export default {
       this.getRangeNews();
     },
     getRangeNews() {
+      this.$store.commit("set", ["globalLoading", true]);
       let queryData = {
         count: this.perPage,
         page: this.currentPage,
@@ -32,11 +33,15 @@ export default {
         (successResp) => {
           this.msgArr = successResp.restData.list;
           this.rows = successResp.restData.total;
-          console.log(this.rows);
+          this.$store.commit("set", ["globalLoading", false]);
+          console.log("查詢特定範圍內的訊息成功!");
         },
         (errorResp) => {
           console.log("查詢特定範圍內的訊息失敗!");
           console.log(errorResp);
+          alert("操作失敗，請重新讀取");
+          this.$store.commit("set", ["globalLoading", false]);
+          this.$router.push("/");
         }
       );
     },

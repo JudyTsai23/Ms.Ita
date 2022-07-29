@@ -7,10 +7,13 @@
       </b-col>
       <!-- 內文 -->
       <b-col cols="12" md="7">
+        <div class="fz-content text-muted mb-3">
+          <span class="fz-content-middle badge badge-primary mr-3">{{ msg.type }}</span>
+          {{ msg.publishTime }}
+        </div>
         <h3 class="wow pulse fz-title text-primary font-weight-bold mb-2">
           {{ msg.title }}
         </h3>
-        <div class="fz-content text-muted mb-3">{{ msg.publishTime }}</div>
         <div v-html="msg.content" class="fz-content text-primary-light"></div>
       </b-col>
     </b-row>

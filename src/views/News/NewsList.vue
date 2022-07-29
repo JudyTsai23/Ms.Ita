@@ -19,7 +19,7 @@
               <span class="badge badge-primary align-text-top mr-2">{{ item.type }}</span>
               {{ item.publishTime }}
             </div>
-            <p v-html="nl2br(item.description)" class="fz-content text-primary-light"></p>
+            <p v-html="nl2br(item.description) + ' ......'" class="fz-content text-primary-light"></p>
             <router-link :to="`/news/${item.id}`" class="text-secondary-dark small mt-4">
               more
               <b-icon-arrow-right-square-fill font-scale="1.25" />
@@ -45,7 +45,7 @@
               <span class="badge badge-primary align-text-top mr-2">{{ item.type }}</span>
               {{ item.publishTime }}
             </div>
-            <p v-html="nl2br(item.description)" class="fz-content text-primary-light"></p>
+            <p v-html="nl2br(item.description) + '......'" class="fz-content text-primary-light"></p>
             <router-link :to="`/news/${item.id}`" class="text-secondary-dark small mt-4">
               more
               <b-icon-arrow-right-square-fill font-scale="1.25" />

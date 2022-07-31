@@ -3,7 +3,7 @@
     <template v-for="item in msgArr">
       <!-- 置頂訊息 -->
       <template v-if="item.isTop == 1">
-        <b-row :key="item.id" align-h="center" class="py-5 pb-lg-7">
+        <b-row :key="item.id" align-h="center" class="wow fadeIn py-5 pb-lg-7" data-wow-duration="0.5s" data-wow-offset="50">
           <b-col cols="10" md="4" class="mb-3 mb-md-0">
             <router-link :to="`/news/${item.id}`">
               <b-img fluid :src="item.image" />
@@ -29,7 +29,7 @@
       </template>
       <!-- 一般訊息 -->
       <template v-else>
-        <b-row :key="item.id" align-h="center" class="py-4b py-md-5">
+        <b-row :key="item.id" align-h="center" class="wow fadeIn py-4b py-md-5" data-wow-duration="0.5s" data-wow-offset="50">
           <b-col cols="10" md="3" class="mb-2 mb-md-0">
             <router-link :to="`/news/${item.id}`">
               <b-img fluid :src="item.image" />

@@ -5,11 +5,11 @@
     <div class="intro" v-for="intro in introductions" :key="intro.title">
       <b-container class="section">
         <b-row align-v="center" align-h="around">
-          <b-col cols="11" md="7" lg="5" order-md="1">
+          <b-col cols="11" md="7" lg="5" order-md="1" class="wow fadeInUp" data-wow-offset="100">
             <h3 class="fz-title-middle font-weight-bold">{{ intro.title }}</h3>
             <p class="fz-content-middle my-4">{{ intro.content }}</p>
           </b-col>
-          <b-col class="img" cols="11" md="5" lg="4">
+          <b-col cols="11" md="5" lg="4" class="img wow zoomInSmall" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="100">
             <b-img-lazy :src="intro.image" fluid />
           </b-col>
         </b-row>
@@ -19,7 +19,7 @@
     <div class="contact section">
       <b-container>
         <h3 class="text-center font-weight-bold mb-4">餐廳資訊</h3>
-        <b-row align-h="between">
+        <b-row align-h="between" class="wow fadeInUp" data-wow-offset="200">
           <!-- 聯絡資訊 -->
           <b-col class="text-md-center mt-4 mt-md-0" md="5" align-self="center">
             <b-row align-v="center" cols-md="1">

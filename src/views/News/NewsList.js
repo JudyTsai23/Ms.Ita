@@ -35,6 +35,10 @@ export default {
           this.rows = successResp.restData.total;
           this.$store.commit("set", ["globalLoading", false]);
           console.log("查詢特定範圍內的訊息成功!");
+
+          this.$nextTick(() => {
+            new this.$wow.WOW({ live: false }).init();
+          });
         },
         (errorResp) => {
           console.log("查詢特定範圍內的訊息失敗!");

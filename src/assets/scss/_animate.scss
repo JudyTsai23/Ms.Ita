@@ -1,0 +1,27 @@
+/* Zooming entrances */
+@-webkit-keyframes zoomInSmall {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.85, 0.85, 0.85);
+    transform: scale3d(0.85, 0.85, 0.85);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes zoomInSmall {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.85, 0.85, 0.85);
+    transform: scale3d(0.85, 0.85, 0.85);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+.zoomInSmall {
+  -webkit-animation-name: zoomInSmall;
+  animation-name: zoomInSmall;
+}

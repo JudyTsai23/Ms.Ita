@@ -71,6 +71,10 @@ export default {
           this.mealsList = this.groupBy(this.allMealsData, "mealSubCategory");
           this.$store.commit("set", ["globalLoading", false]);
           console.log("查詢特定分類餐點成功!");
+
+          this.$nextTick(() => {
+            new this.$wow.WOW({ live: false }).init();
+          });
         },
         (errorResp) => {
           console.log("查詢特定分類餐點失敗!");
@@ -84,6 +88,10 @@ export default {
     getCategoryMealsMock() {
       this.allMealsData = Meals.getCateMeals(this.currentCategory);
       this.mealsList = this.groupBy(this.allMealsData, "mealSubCategory");
+
+      this.$nextTick(() => {
+        new this.$wow.WOW({ live: false }).init();
+      });
     },
     groupBy(data, targetColumn) {
       return data.reduce(function(currResult, item) {

@@ -18,26 +18,32 @@
       </div>
       <div v-for="(categoryMeals, key) in mealsList" :key="key">
         <!-- categoryMeals是單一子類別中所有餐點，key是餐點分類名稱 -->
-        <h4 v-if="key != ''" class="text-center text-other mb-4b">
+        <h4 v-if="key != ''" class="wow fadeIn text-center text-other mb-4b">
           <b-icon icon="square-fill" rotate="45" class="small" font-scale="0.5" shift-v="6"></b-icon>
           {{ key }}
           <b-icon icon="square-fill" rotate="45" class="" font-scale="0.5" shift-v="6"></b-icon>
         </h4>
         <b-row cols="2" cols-md="3" cols-lg="4" class="mb-6">
-          <b-col v-for="item in categoryMeals" :key="item.index" class="px-3">
+          <b-col v-for="item in categoryMeals" :key="item.id" class="wow fadeIn px-3" data-wow-duration="1.2s" data-wow-offset="50">
             <!-- item是單個餐點(object) -->
             <b-card
               :title="item.mealName"
               title-tag="h5"
+              header-class="position-relative border-0 p-0"
               footer-bg-variant="transparent"
               footer-border-variant="0"
               :img-src="item.mealImage"
               :img-alt="item.mealName"
               img-top
-              class="fz-sub-title mb-5 shadow"
+              body-bg-variant="white"
+              body-class="z-index-1"
+              class="fz-sub-title mb-5 shadow overflow-hidden"
               v-b-modal.mealModal
               @click="ChangeCurrentMeal(item)"
             >
+              <template #header v-if="item.mealLimit != ''">
+                <span class="wow pulse badge badge-danger fz-content-small limited-tag" data-wow-delay="0.8s">期間限定</span>
+              </template>
               <template #footer>
                 <div class="fz-content text-right">NT$ {{ item.mealPrice }}</div>
               </template>
@@ -89,6 +95,19 @@
 .nav-icon {
   width: 1.75em;
   height: 1.75em;
+}
+// 餐點card
+.card img {
+  transition: transform 0.5s;
+}
+.card:hover img {
+  transform: scale(1.1);
+}
+.limited-tag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  box-shadow: 0 0 8px 2px #fff;
 }
 #mealModal {
   img {

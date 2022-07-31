@@ -11,7 +11,7 @@
           <span class="fz-content-middle badge badge-primary mr-3">{{ msg.type }}</span>
           {{ msg.publishTime }}
         </div>
-        <h3 class="wow pulse fz-title text-primary font-weight-bold mb-2">
+        <h3 class="wow pulse d-inline-block fz-title text-primary font-weight-bold mb-2" data-wow-delay="0.2s">
           {{ msg.title }}
         </h3>
         <div v-html="msg.content" class="fz-content text-primary-light"></div>

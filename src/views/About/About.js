@@ -25,4 +25,7 @@ export default {
       ],
     };
   },
+  mounted() {
+    new this.$wow.WOW({ live: false }).init();
+  },
 };

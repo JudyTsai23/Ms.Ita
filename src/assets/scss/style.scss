@@ -9,6 +9,7 @@
 
 // General style overrides and custom classes
 @import "text";
+@import "animate";
 
 body {
   background-color: white; //just a test
@@ -27,4 +28,7 @@ body {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+}
+.z-index-1 {
+  z-index: 1;
 }

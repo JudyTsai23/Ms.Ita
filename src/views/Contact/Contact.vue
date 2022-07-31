@@ -64,18 +64,12 @@
 // @import "~bootstrap/scss/vendor/rfs";
 @import "~bootstrap/scss/mixins/breakpoints";
 .contact {
-  // background-image: linear-gradient(#fff 0%, rgba(255, 255, 255, 0) 100%), url("~@/assets/img/background/683.png");
   background-image: linear-gradient(#fff 0%, rgba(255, 255, 255, 0.2) 100%), url("~@/assets/img/background/461.png");
-  // background-image: linear-gradient(170deg, #fff 20%, rgba(255, 255, 255, 0) 95%), url("~@/assets/img/background/459.png");
   overflow: hidden;
 
   @include media-breakpoint-up(md) {
     .row {
       background: url("~@/assets/img/other/write.png") no-repeat left bottom/500px auto;
-      // transform: rotate(5deg);
-    }
-    .card {
-      // transform: rotate(-5deg);
     }
   }
   @include media-breakpoint-up(lg) {

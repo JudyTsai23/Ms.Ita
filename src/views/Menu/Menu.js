@@ -1,5 +1,6 @@
 import AjaxService from "@/services/ajaxService.js";
 import MenuCategories from "@/mock/menuCategories.js";
+import Meals from "@/mock/meals.js";
 
 export default {
   name: "Menu",
@@ -32,7 +33,9 @@ export default {
   watch: {
     "$route.params.category"(val, oldVal) {
       this.currentCategory = val;
-      this.getCategoryMeals();
+      // this.getCategoryMeals();
+      // 暫時先使用mock假資料
+      this.getCategoryMealsMock();
       window.scroll({
         top: 0,
         left: 0,
@@ -42,9 +45,12 @@ export default {
   },
   methods: {
     init() {
-      this.getCategoryMeals();
+      // this.getCategoryMeals();
+      // 暫時先使用mock假資料
+      this.getCategoryMealsMock();
     },
     getCategoryMeals() {
+      this.$store.commit("set", ["globalLoading", true]);
       AjaxService.get(
         "/server/menu/" + this.currentCategory,
         (successResp) => {
@@ -63,12 +69,21 @@ export default {
             return meal;
           });
           this.mealsList = this.groupBy(this.allMealsData, "mealSubCategory");
+          this.$store.commit("set", ["globalLoading", false]);
+          console.log("查詢特定分類餐點成功!");
         },
         (errorResp) => {
-          console.log("查詢定分類餐點失敗!");
+          console.log("查詢特定分類餐點失敗!");
           console.log(errorResp);
+          alert("操作失敗，請重新讀取");
+          this.$store.commit("set", ["globalLoading", false]);
+          this.$router.push("/");
         }
       );
+    },
+    getCategoryMealsMock() {
+      this.allMealsData = Meals.getCateMeals(this.currentCategory);
+      this.mealsList = this.groupBy(this.allMealsData, "mealSubCategory");
     },
     groupBy(data, targetColumn) {
       return data.reduce(function(currResult, item) {

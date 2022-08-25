@@ -35,7 +35,7 @@ export default {
   name: "Header",
   data() {
     return {
-      // 類別
+      // 類別 // FIXME 改成直接從vuex取資料
       menuCategories: MenuCategories.getMenuCategoriesName(),
     };
   },

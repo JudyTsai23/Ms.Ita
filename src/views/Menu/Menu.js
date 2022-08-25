@@ -5,8 +5,8 @@ export default {
   data() {
     return {
       // 當前餐點類別
-      currentCategory: this.$route.params.category,
-      // 類別
+      currentCategory: {},
+      // 所有餐點類別
       categories: [],
       // 當前餐點類別依子類別分組的餐點列表
       mealsList: {},
@@ -17,18 +17,9 @@ export default {
   mounted() {
     this.init();
   },
-  computed: {
-    // 當前餐點類別的名稱
-    currentCategoryName() {
-      let currentCategoryData = this.categories.find((cate) => {
-        return cate.name == this.currentCategory;
-      });
-      return currentCategoryData.zhName;
-    },
-  },
   watch: {
     "$route.params.category"(val, oldVal) {
-      this.currentCategory = val;
+      this.getCurrentCategory(val);
       this.getCategoryMeals();
       window.scroll({
         top: 0,
@@ -39,31 +30,41 @@ export default {
   },
   methods: {
     init() {
+      this.getCurrentCategory(this.$route.params.category);
       this.getMenuCategories();
       this.getCategoryMeals();
     },
-    // 取得所有餐點類別
+    // 取得所有餐點類別 // FIXME 改成直接從vuex取資料
     getMenuCategories() {
-      this.$store.commit("set", ["globalLoading", true]);
-      AjaxService.get(
-        "/server/mealCate/cate",
-        (successResp) => {
-          this.categories = successResp.restData;
-          console.log("查詢所有餐點類別成功!");
-        },
-        (errorResp) => {
-          console.log("查詢所有餐點類別失敗!");
-          console.log(errorResp);
-          alert("操作失敗，請重新讀取");
-          this.$router.push("/");
-        }
-      );
+      /**
+       * this.categories=所有類別的資料
+       * [
+       *  {
+       *   id
+       *   name
+       *   zhName
+       *   icon
+       *  }
+       * ]
+       */
+    },
+    // 取得當前餐點類別的id、中文名稱 // FIXME 直接從vuex取資料
+    getCurrentCategory(slug) {
+      /**
+       * this.currentCategory=當前餐點類別的資料
+       * {
+       *  id
+       *  zhName
+       *  name (可有可無)
+       *  icon (可有可無)
+       * }
+       */
     },
     // 取得當前類別的所有餐點
     getCategoryMeals() {
       this.$store.commit("set", ["globalLoading", true]);
       AjaxService.get(
-        "/server/menu/" + this.currentCategory,
+        "/server/menu/" + this.currentCategory.id,
         (successResp) => {
           console.log(successResp.restData);
           this.mealsList = successResp.restData;

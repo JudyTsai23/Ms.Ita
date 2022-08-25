@@ -12,7 +12,7 @@
     <b-container class="section pt-0">
       <div class="menu-title my-5">
         <b-icon icon="grid-fill" rotate="45" class="mx-3 mx-md-4b"></b-icon>
-        <h3 class="m-0">{{ currentCategoryName }}</h3>
+        <h3 class="m-0">{{ currentCategory.zhName }}</h3>
         <b-icon icon="grid-fill" rotate="45" class="mx-3 mx-md-4b"></b-icon>
       </div>
       <!-- 單一子類別 -->

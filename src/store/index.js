@@ -34,12 +34,12 @@ export default new Vuex.Store({
             (successResp) => {
               if (successResp.restData) {
                 resolve(successResp.restData);
-                console.log("查詢所有餐點種類成功");
+                console.log("查詢所有餐點類別成功");
               }
             },
             (errorResp) => {
               reject(errorResp);
-              console.log("查詢所有餐點種類失敗");
+              console.log("查詢所有餐點類別失敗");
             }
           );
         })

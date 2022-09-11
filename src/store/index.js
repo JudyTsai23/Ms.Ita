@@ -12,7 +12,7 @@ export default new Vuex.Store({
     // 全域 overlay
     globalLoading: false,
     // 餐點類別物件
-    menuCategory: null,
+    menuCategory: new MenuCategory(),
   },
   mutations: {
     // 設定值給 state
@@ -21,7 +21,7 @@ export default new Vuex.Store({
     },
     // 初始化餐點類別
     initMenuCategory(state, cateList) {
-      state.menuCategory = new MenuCategory(cateList);
+      state.menuCategory.init(cateList);
     },
   },
   actions: {

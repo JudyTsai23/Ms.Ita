@@ -1,7 +1,15 @@
 class MenuCategory {
-  constructor(cateList) {
-    this.category = cateList[0];
-    this.subCategory = cateList[1];
+  constructor() {
+    this.category = [];
+    this.subCategory = [];
+    this.isInit = false;
+  }
+
+  // 初始設定
+  init(dataList) {
+    this.category = dataList[0] || [];
+    this.subCategory = dataList[1] || [];
+    this.isInit = true;
   }
 
   // 取得類別清單

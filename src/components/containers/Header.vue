@@ -14,7 +14,7 @@
           <b-nav-item class="mr-3 mr-lg-5" to="/news">訊息專區</b-nav-item>
           <b-nav-item-dropdown class="mr-3 mr-lg-5 dropdown-list" text="美味餐點">
             <div v-for="category in menuCategories" :key="category.slug">
-              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${category.slug}`">{{ category.name }}</b-dropdown-item>
+              <b-dropdown-item variant="primary" active-class="bg-primary-lighter" :to="`/menu/${category.name}`">{{ category.zhName }}</b-dropdown-item>
             </div>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown class="mr-3 mr-lg-5" text="線上預訂">
@@ -29,15 +29,20 @@
   </div>
 </template>
 <script>
-import MenuCategories from "@/mock/menuCategories.js";
-
 export default {
   name: "Header",
   data() {
     return {
-      // 類別 // FIXME 改成直接從vuex取資料
-      menuCategories: MenuCategories.getMenuCategoriesName(),
+      menuCategories: this.$store.state.menuCategory.getCategoryList(),
     };
+  },
+  watch: {
+    "$store.state.menuCategory.isInit": {
+      handler() {
+        this.menuCategories = this.$store.state.menuCategory.getCategoryList();
+      },
+      deep: true,
+    },
   },
 };
 </script>

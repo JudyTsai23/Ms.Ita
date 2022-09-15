@@ -1,3 +1,4 @@
+import AjaxService from "@/services/ajaxService.js";
 import FormItem from "./FormItem";
 export default {
   components: {
@@ -14,21 +15,28 @@ export default {
       maxDate: today,
       // 聯絡表單-用餐時段 選項
       timeItems: [
-        { text: "午餐時段", value: "lunch" },
-        { text: "晚餐時段", value: "dinner" },
+        { text: "午餐時段", value: "1" },
+        { text: "晚餐時段", value: "2" },
       ],
       // 聯絡表單-回饋主題 選項
-      topics: [{ text: "請選擇", value: null, disabled: true }, "餐廳環境", "關於餐點", "服務品質", "網站相關", "其他"],
+      topics: [
+        { text: "請選擇", value: null, disabled: true },
+        { text: "餐廳環境", value: "1" },
+        { text: "關於餐點", value: "2" },
+        { text: "服務品質", value: "3" },
+        { text: "網站相關", value: "4" },
+        { text: "其他", value: "5" },
+      ],
       // 聯絡表單
       form: {
-        name: "",
+        customerName: "",
         phone: "",
         email: "",
-        reply: "",
+        subscription: false,
         topic: null,
         date: "",
-        time: "",
-        content: "",
+        period: "",
+        opinion: "",
         rating: null,
       },
       show: true,
@@ -43,14 +51,14 @@ export default {
       this.show = false;
       // Reset our form values
       this.form = {
-        name: "",
+        customerName: "",
         phone: "",
         email: "",
-        reply: "",
+        subscription: false,
         topic: null,
         date: "",
-        time: "",
-        content: "",
+        period: "",
+        opinion: "",
         rating: null,
       };
 
@@ -60,7 +68,21 @@ export default {
       });
     },
     onSubmit() {
-      alert(JSON.stringify(this.form));
+      console.log(this.form);
+      this.$store.commit("set", ["globalLoading", true]);
+      AjaxService.post(
+        "/server/feedback",
+        this.form,
+        (successResp) => {
+          this.$bvModal.show("formMsg");
+          this.$store.commit("set", ["globalLoading", false]);
+          console.log("意見回饋儲存成功!");
+        },
+        (errorResp) => {
+          console.log("意見回饋儲存失敗!");
+          console.log(errorResp);
+        }
+      );
     },
   },
   computed: {},

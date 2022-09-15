@@ -13,7 +13,7 @@
                 <b-form @submit.prevent="handleSubmit(onSubmit)" @reset.prevent="onReset" v-if="show">
                   <!-- 姓名 text -->
 
-                  <FormItem :value.sync="form.name" fieldName="姓名" required />
+                  <FormItem :value.sync="form.customerName" fieldName="姓名" required />
 
                   <!-- 電話 tel -->
                   <!-- TODO:電話不需驗證 -->
@@ -22,7 +22,7 @@
                   <!-- Email email -->
                   <FormItem :value.sync="form.email" fieldName="Email" inputType="email" description="您輸入的Email為聯繫使用，絕不做其他用途" required>
                     <template v-slot:after>
-                      <b-form-checkbox id="input-reply" class="mt-2" v-model="form.reply" value="reply" unchecked-value="not_reply" size="sm">
+                      <b-form-checkbox id="input-reply" class="mt-2" v-model="form.subscription" :value="true" :unchecked-value="false" size="sm">
                         希望收到回覆
                       </b-form-checkbox>
                     </template>
@@ -34,10 +34,10 @@
                   <FormItem :value.sync="form.date" fieldName="用餐日期" inputType="date" :datepickerMax="maxDate" required groupClass="mb-1" />
 
                   <!-- 用餐時段 radio -->
-                  <FormItem :value.sync="form.time" fieldName="用餐時段" inputType="radio" :options="timeItems" noLabel required />
+                  <FormItem :value.sync="form.period" fieldName="用餐時段" inputType="radio" :options="timeItems" noLabel required />
 
                   <!-- 意見 textarea -->
-                  <FormItem :value.sync="form.content" fieldName="詳細意見" inputType="textarea" placeholder="請將詳盡描述您的意見，好讓我們能夠理解您的需求。" required />
+                  <FormItem :value.sync="form.opinion" fieldName="詳細意見" inputType="textarea" placeholder="請將詳盡描述您的意見，好讓我們能夠理解您的需求。" required />
 
                   <!-- 整體感受 rating -->
                   <!-- TODO:rating驗證無效 -->
@@ -55,6 +55,16 @@
         </b-row>
       </b-container>
     </div>
+    <b-modal id="formMsg" title="" size="sm" button-size="sm" hide-footer @hidden="onReset" header-bg-variant="primary-lighter" header-text-variant="white" header-class="p-2 border-bottom-0">
+      <template #modal-title>
+        <b-icon-check2-all />
+        發送成功
+      </template>
+      <p class="mt-2 mb-5">感謝您寶貴的意見，我們會盡力為您提供更好的服務！</p>
+      <b-button size="sm" variant="primary-light" to="/" block>
+        回首頁
+      </b-button>
+    </b-modal>
   </div>
 </template>
 

@@ -99,6 +99,17 @@
 // 餐點card
 .card img {
   transition: transform 0.5s;
+  object-fit: cover;
+  aspect-ratio: 10/9;
+  @supports not (aspect-ratio: 10 / 9) {
+    height: 225px;
+    @include media-breakpoint-down(lg) {
+      height: 185px;
+    }
+    @media (max-width: 450px) {
+      height: 145px;
+    }
+  }
 }
 .card:hover img {
   transform: scale(1.1);

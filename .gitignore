@@ -1,5 +1,5 @@
 # generate directories
-/dist
+
 
 # local env files
 .env.local

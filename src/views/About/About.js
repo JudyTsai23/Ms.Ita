@@ -26,6 +26,7 @@ export default {
     };
   },
   mounted() {
+    this.$store.commit("set", ["globalLoading", false]);
     new this.$wow.WOW({ live: false }).init();
   },
 };

@@ -1,6 +1,7 @@
 module.exports = {
   lintOnSave: false,
   runtimeCompiler: true,
+  publicPath: process.env.BASE_URL,
   css: {
     loaderOptions: {
       sass: {

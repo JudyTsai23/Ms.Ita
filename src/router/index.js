@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  base: process.env.VUE_APP_ROUTER_BASE,
   mode: "history",
   linkActiveClass: "active",
   scrollBehavior: () => ({ y: 0 }),

@@ -25,6 +25,14 @@ export default {
         "/server/news/" + this.id,
         (successResp) => {
           this.msg = successResp.restData;
+
+          // 處理發布日期的日期值
+          let publish_date = this.msg.publishDate.toString();
+          let Y = publish_date.substr(0, 4),
+            M = publish_date.substr(4, 2),
+            D = publish_date.substr(6, 2);
+          this.msg.publishDate = `${Y}-${M}-${D}`;
+
           this.$store.commit("set", ["globalLoading", false]);
           console.log("取得訊息資料成功!");
         },

@@ -9,7 +9,7 @@
       <b-col cols="12" md="7">
         <div class="fz-content text-muted mb-3">
           <span class="fz-content-middle badge badge-primary mr-3">{{ msg.type }}</span>
-          {{ msg.publishTime }}
+          {{ msg.publishDate }}
         </div>
         <h3 class="wow pulse d-inline-block fz-title text-primary font-weight-bold mb-2" data-wow-delay="0.2s">
           {{ msg.title }}

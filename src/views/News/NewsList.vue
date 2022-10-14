@@ -17,7 +17,7 @@
             </router-link>
             <div class="fz-content text-muted mb-3">
               <span class="badge badge-primary align-text-top mr-2">{{ item.type }}</span>
-              {{ item.publishTime }}
+              {{ item.publishDate }}
             </div>
             <p v-html="nl2br(item.description) + ' ......'" class="fz-content text-primary-light"></p>
             <router-link :to="`/news/${item.id}`" class="text-secondary-dark small mt-4">
@@ -43,7 +43,7 @@
             </router-link>
             <div class="fz-content text-muted mb-3">
               <span class="badge badge-primary align-text-top mr-2">{{ item.type }}</span>
-              {{ item.publishTime }}
+              {{ item.publishDate }}
             </div>
             <p v-html="nl2br(item.description) + '......'" class="fz-content text-primary-light"></p>
             <router-link :to="`/news/${item.id}`" class="text-secondary-dark small mt-4">

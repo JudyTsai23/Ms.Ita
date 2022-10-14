@@ -31,8 +31,17 @@ export default {
         "/server/news/range",
         queryData,
         (successResp) => {
-          this.msgArr = successResp.restData.list;
           this.rows = successResp.restData.total;
+          let resultList = successResp.restData.list;
+          // 處理發布日期的日期值
+          this.msgArr = resultList.map((item) => {
+            let publish_date = item.publishDate.toString();
+            let Y = publish_date.substr(0, 4),
+              M = publish_date.substr(4, 2),
+              D = publish_date.substr(6, 2);
+            item.publishDate = `${Y}-${M}-${D}`;
+            return item;
+          });
           this.$store.commit("set", ["globalLoading", false]);
           console.log("查詢特定範圍內的訊息成功!");
 

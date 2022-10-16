@@ -5,17 +5,16 @@ export default {
   data() {
     return {
       // top slide
-      slideImg: ["02.jpg", "03.jpg", "04.jpg"],
+      slideImg: ["03.jpg", "04.jpg"],
       // 四個圈圈
       categoryImg: [
         {
           label: "舒適的用餐環境",
           pic: "restaurant/view01.jpg",
-          link: "#",
         },
-        { label: "美味的精緻餐點", pic: "other/pasta.jpg", link: "#" },
-        { label: "親切的服務態度", pic: "restaurant/service.jpg", link: "#" },
-        { label: "專業的服務態度", pic: "other/coffee.png", link: "#" },
+        { label: "美味的精緻餐點", pic: "other/pasta.jpg" },
+        { label: "親切的服務態度", pic: "restaurant/service.jpg" },
+        { label: "專業的服務態度", pic: "other/coffee.png" },
       ],
       // 訊息清單
       newsList: [],

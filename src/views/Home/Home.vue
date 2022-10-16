@@ -4,15 +4,11 @@
     <div class="top-slide">
       <b-overlay variant="dark" opacity="0.65" blur="10" show>
         <template #overlay>
-          <b-img fluid class="mt-5 logo" :src="require(`@/assets/img/logo/logo2-bold.svg`)" />
-          <div class="text-center logo-text">
-            <span class="fz-title-middle title font-italic">
-              Italian restaurant
-            </span>
-            <br />
-            <span class="fz-sub-title sub-title font-italic">
+          <div class="d-flex flex-column align-items-center">
+            <b-img fluid class="mt-5 mb-3 logo" :src="require(`@/assets/img/logo/logo_prod.png`)" />
+            <div class="fz-content-middle font-italic logo-text">
               Enjoy food. Relax. Have a Good day.
-            </span>
+            </div>
           </div>
         </template>
         <b-carousel :interval="4000" background="#ababab" fade indicators>
@@ -33,11 +29,9 @@
         <b-row class="content" align-v="center" align-h="center">
           <template v-for="(item, index) of categoryImg">
             <b-col cols="6" lg="3" :key="index">
-              <router-link :to="item.link">
-                <div class="img-wrapper shadow-lg wow slideInDown" data-wow-duration="1.2s" :data-wow-delay="`${index * 0.02}s`">
-                  <b-img-lazy class="img" rounded="circle" blank-color="#444422" center fluid :src="require(`@/assets/img/` + item.pic)" />
-                </div>
-              </router-link>
+              <div class="img-wrapper shadow-lg wow slideInDown" data-wow-duration="1.2s" :data-wow-delay="`${index * 0.02}s`">
+                <b-img-lazy class="img" rounded="circle" blank-color="#444422" center fluid :src="require(`@/assets/img/` + item.pic)" />
+              </div>
               <p class="text-center text-white mt-2">{{ item.label }}</p>
             </b-col>
           </template>
@@ -130,18 +124,12 @@
 .top-slide {
   margin-top: -60px;
   .logo {
-    height: 150px;
+    height: 270px;
   }
   .logo-text {
     font-weight: 400;
     letter-spacing: 1px;
-
-    .title {
-      color: $secondary-light;
-    }
-    .sub-title {
-      color: $secondary;
-    }
+    color: $secondary;
   }
   .img {
     object-fit: cover;

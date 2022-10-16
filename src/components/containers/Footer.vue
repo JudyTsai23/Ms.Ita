@@ -2,17 +2,18 @@
   <footer class="footer pt-2">
     <div class="footer-inside">
       <div class="d-flex justify-content-between align-items-center py-4">
-        <img class="logo" src="@/assets/img/logo/logo2-bold.svg" />
+        <img class="logo" src="@/assets/img/logo/logo_hor_prod.png" />
         <div class="d-flex flex-column text-right">
           <span>Ms.Ita © 2022</span>
           <span>
-            Icons by BootstrapVue,
+            Icons & Logo by BootstrapVue,
             <a href="https://www.flaticon.com/" title="Flaticon">Flaticon.com</a>
             and <a target="_blank" href="https://icons8.com">Icons8</a>
           </span>
           <span>
-            此為練習用網站，不為商業所用
+            此為練習用網站，不為商業所用，如有侵權敬請告知
           </span>
+          <small>Design by Joyu & Judy ( saiyuki0804@gmail.com )</small>
         </div>
       </div>
     </div>

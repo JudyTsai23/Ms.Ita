@@ -5,7 +5,7 @@
       <b-overlay variant="dark" opacity="0.65" blur="10" show>
         <template #overlay>
           <div class="d-flex flex-column align-items-center">
-            <b-img fluid class="mt-5 mb-3 logo" :src="require(`@/assets/img/logo/logo_prod.png`)" />
+            <b-img fluid class="mt-5 mb-3 logo" :src="require(`@/assets/img/logo/logo_final_vertical.png`)" />
             <div class="fz-content-middle font-italic logo-text">
               Enjoy food. Relax. Have a Good day.
             </div>

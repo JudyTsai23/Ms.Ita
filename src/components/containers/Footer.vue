@@ -1,9 +1,11 @@
 <template>
   <footer class="footer pt-2">
     <div class="footer-inside">
-      <div class="d-flex justify-content-between align-items-center py-4">
-        <img class="logo" src="@/assets/img/logo/logo_hor_prod.png" />
-        <div class="d-flex flex-column text-right">
+      <div class="d-flex flex-wrap justify-content-between align-items-center py-4">
+        <div class="col-12 col-md-5 d-flex justify-content-center">
+          <img class="logo" src="@/assets/img/logo/logo_final_horizontal.png" />
+        </div>
+        <div class="col-12 col-md-7 d-flex flex-column text-right pt-4 pt-md-0">
           <span>Ms.Ita © 2022</span>
           <span>
             Icons & Logo by BootstrapVue,
@@ -25,6 +27,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "~bootstrap/scss/mixins/breakpoints";
+
 .footer {
   position: relative;
   left: 0;
@@ -36,11 +40,20 @@ export default {
   font-size: 13px;
 
   .footer-inside {
-    width: 70%;
+    width: 80%;
     margin: auto;
 
     .logo {
-      height: 10vh;
+      width: 60%;
+      @include media-breakpoint-up(md) {
+        width: 90%;
+      }
+      @include media-breakpoint-up(lg) {
+        width: 70%;
+      }
+      @include media-breakpoint-up(xl) {
+        width: 60%;
+      }
     }
     a {
       @include router-link(rgb(111, 131, 111));

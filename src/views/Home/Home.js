@@ -10,11 +10,11 @@ export default {
       categoryImg: [
         {
           label: "舒適的用餐環境",
-          pic: "restaurant/view01.jpg",
+          pic: "restaurant/env.jpg",
         },
         { label: "美味的精緻餐點", pic: "other/pasta.jpg" },
-        { label: "親切的服務態度", pic: "restaurant/service.jpg" },
-        { label: "專業的服務態度", pic: "other/coffee.png" },
+        { label: "親切的服務態度", pic: "other/service02.jpg" },
+        { label: "專業的服務態度", pic: "other/coffee03.jpg" },
       ],
       // 訊息清單
       newsList: [],

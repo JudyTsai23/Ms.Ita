@@ -2,7 +2,7 @@
   <div>
     <b-navbar class="nav-bar" toggleable="md" type="dark" fixed="top">
       <b-navbar-brand to="/home">
-        <img class="logo" src="../../assets/img/logo/logo_hor_prod.png" alt="Ms.Ita" />
+        <img class="logo" src="../../assets/img/logo/logo_final_horizontal.png" alt="Ms.Ita" />
       </b-navbar-brand>
       <!-- <b-navbar-brand to="/home">Ms. Ita</b-navbar-brand> -->
 

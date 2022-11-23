@@ -16,6 +16,7 @@
             此為練習用網站，不為商業所用，如有侵權敬請告知
           </span>
           <small>Design by Joyu & Judy ( saiyuki0804@gmail.com )</small>
+          <samll>{{ version }}</samll>
         </div>
       </div>
     </div>
@@ -24,6 +25,11 @@
 <script>
 export default {
   name: "Footer",
+  data() {
+    return {
+      version: process.env.VUE_APP_VERSION,
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
